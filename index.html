@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleidson Franklin | Portfólio de Product Designer</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfólio de Cleidson Franklin, Product Designer especialista em criar produtos digitais acessíveis e focados no usuário. Explore meus projetos em e-commerce, agritech e mais.">
+    <meta name="keywords" content="Product Designer, UX Designer, UI Designer, Portfólio, Cleidson Franklin, Experiência do Usuário, Design de Produto, Agritech, E-commerce, Design System">
+    <meta name="author" content="Cleidson Franklin">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Cleidson Franklin | Portfólio de Product Designer">
+    <meta property="og:description" content="Portfólio de Cleidson Franklin, Product Designer especialista em criar produtos digitais acessíveis e focados no usuário.">
+    <meta property="og:image" content="https://placehold.co/1200x630/1a1a1a/ffffff?text=Cleidson+Franklin">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Cleidson Franklin | Portfólio de Product Designer">
+    <meta property="twitter:description" content="Portfólio de Cleidson Franklin, Product Designer especialista em criar produtos digitais acessíveis e focados no usuário.">
+    <meta property="twitter:image" content="https://placehold.co/1200x630/1a1a1a/ffffff?text=Cleidson+Franklin">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Estilo para a fonte Inter */
+        body {
+            font-family: 'Inter', sans-serif;
+            cursor: none;
+        }
+        a, button, .group {
+            cursor: none;
+        }
+        /* Estilos para o link de navegação ativo */
+        .nav a.active .nav-indicator {
+            width: 1rem; /* 16px, w-4 */
+            background-color: #ffffff; /* white */
+        }
+        .nav a.active .nav-text {
+            color: #ffffff; /* white */
+        }
+    </style>
+</head>
+<body class="bg-black leading-relaxed text-gray-400 antialiased selection:bg-white selection:text-black">
+    <div class="curzr" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+        <path class="inner" d="M25,30a5.82,5.82,0,0,1-1.09-.17l-.2-.07-7.36-3.48a.72.72,0,0,0-.35-.08.78.78,0,0,0-.33.07L8.24,29.54a.66.66,0,0,1-.2.06,5.17,5.17,0,0,1-1,.15,3.6,3.6,0,0,1-3.29-5L12.68,4.2a3.59,3.59,0,0,1,6.58,0l9,20.74A3.6,3.6,0,0,1,25,30Z" fill="#F2F5F8" />
+        <path class="outer" d="M16,3A2.59,2.59,0,0,1,18.34,4.6l9,20.74A2.59,2.59,0,0,1,25,29a5.42,5.42,0,0,1-.86-.15l-7.37-3.48a1.84,1.84,0,0,0-.77-.17,1.69,1.69,0,0,0-.73.16l-7.4,3.31a5.89,5.89,0,0,1-.79.12,2.59,2.59,0,0,1-2.37-3.62L13.6,4.6A2.58,2.58,0,0,1,16,3m0-2h0A4.58,4.58,0,0,0,11.76,3.8L2.84,24.33A4.58,4.58,0,0,0,7,30.75a6.08,6.08,0,0,0,1.21-.17,1.87,1.87,0,0,0,.4-.13L16,27.18l7.29,3.44a1.64,1.64,0,0,0,.39.14A6.37,6.37,0,0,0,25,31a4.59,4.59,0,0,0,4.21-6.41l-9-20.75A4.62,4.62,0,0,0,16,1Z" fill="#111920" />
+      </svg>
+    </div>
+    <!-- Contêiner principal com layout flexível para desktop -->
+    <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
+        <div class="lg:flex lg:justify-between lg:gap-4">
+            
+            <!-- Coluna Esquerda Fixa (Header) -->
+            <header id="portfolio-header" class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
+                <div>
+                    <img class="h-40 w-40 rounded-full mb-4 border-2 border-gray-800 object-cover" src="./media/retrato.jpg" alt="Foto de perfil de Cleidson Franklin">
+                    <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+                        <a href="/">Cleidson Franklin</a>
+                    </h1>
+                    <h2 class="mt-3 text-lg font-medium tracking-tight text-white sm:text-xl">
+                        Product Designer
+                    </h2>
+                    <p class="mt-4 max-w-xs leading-normal">
+                        Eu crio produtos digitais acessíveis e focados no usuário, unindo design e estratégia.
+                    </p>
+
+                    <!-- Navegação -->
+                    <nav class="nav hidden lg:block" aria-label="In-page jump links">
+                        <ul class="mt-16 w-max">
+                            <li>
+                                <a class="group flex items-center py-3" href="#sobre">
+                                    <span class="nav-indicator mr-4 h-2 w-2 rounded-full bg-gray-700 transition-all group-hover:w-4 group-hover:bg-white group-focus-visible:w-4 group-focus-visible:bg-white motion-reduce:transition-none"></span>
+                                    <span class="nav-text text-xs font-bold uppercase tracking-widest text-gray-400 group-hover:text-white group-focus-visible:text-white">
+                                        Sobre
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="group flex items-center py-3" href="#experiencia">
+                                    <span class="nav-indicator mr-4 h-2 w-2 rounded-full bg-gray-700 transition-all group-hover:w-4 group-hover:bg-white group-focus-visible:w-4 group-focus-visible:bg-white motion-reduce:transition-none"></span>
+                                    <span class="nav-text text-xs font-bold uppercase tracking-widest text-gray-400 group-hover:text-white group-focus-visible:text-white">
+                                        Experiência
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="group flex items-center py-3" href="#projetos">
+                                    <span class="nav-indicator mr-4 h-2 w-2 rounded-full bg-gray-700 transition-all group-hover:w-4 group-hover:bg-white group-focus-visible:w-4 group-focus-visible:bg-white motion-reduce:transition-none"></span>
+                                    <span class="nav-text text-xs font-bold uppercase tracking-widest text-gray-400 group-hover:text-white group-focus-visible:text-white">
+                                        Projetos
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="group flex items-center py-3" href="#blog">
+                                    <span class="nav-indicator mr-4 h-2 w-2 rounded-full bg-gray-700 transition-all group-hover:w-4 group-hover:bg-white group-focus-visible:w-4 group-focus-visible:bg-white motion-reduce:transition-none"></span>
+                                    <span class="nav-text text-xs font-bold uppercase tracking-widest text-gray-400 group-hover:text-white group-focus-visible:text-white">
+                                        Blog
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Redes Sociais -->
+                <ul class="ml-1 mt-8 flex items-center" aria-label="Social media">
+                    <li class="mr-5 text-xs shrink-0">
+                        <a class="block hover:text-white" href="https://www.linkedin.com/in/cleidson-productdesigner/" target="_blank" rel="noreferrer noopener">
+                           <span class="sr-only">LinkedIn</span>
+                           <img src="./media/Linkedin.png" alt="">
+                        </a>
+                    </li>
+                     <li class="mr-5 text-xs shrink-0">
+                        <a class="block hover:text-white" href="https://github.com/cleidsonux" target="_blank" rel="noreferrer noopener">
+                            <span class="sr-only">GitHub</span>
+                            <img src="./media/Git.png" alt="">
+                        </a>
+                    </li>
+                     <li class="mr-5 text-xs shrink-0">
+                        <a class="block hover:text-white" href="https://www.behance.net/cleidson-uiux" target="_blank" rel="noreferrer noopener">
+                            <span class="sr-only">Behance</span>
+                            <img src="./media/behance.png" alt="">
+                        </a>
+                    </li>
+                     <li class="text-xs shrink-0">
+                        <a class="block hover:text-white" href="https://www.instagram.com/franklinstech?igsh=MTk1bXdraHVwcXdnMw%3D%3D&utm_source=qr" target="_blank" rel="noreferrer noopener">
+                            <span class="sr-only">Instagram</span>
+                            <img src="./media/Insta.png" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </header>
+            
+            <!-- Coluna Direita com Scroll (Conteúdo Principal) -->
+            <main id="content" class="pt-24 lg:w-1/2 lg:py-24">
+                
+                <!-- Conteúdo Principal do Portfólio -->
+                <div id="main-content">
+                    <!-- Seção Sobre -->
+                    <section id="sobre" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
+                        <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-black px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                            <h2 class="text-sm font-bold uppercase tracking-widest text-white lg:sr-only">Sobre</h2>
+                        </div>
+                        <div>
+                            <p class="mb-4">
+                                Sou Product Designer apaixonado por criar <strong class="font-medium text-white">interfaces acessíveis e visualmente precisas</strong>, que unem design inteligente a engenharia robusta. Meu foco está na <strong class="font-medium text-white">interseção entre design e desenvolvimento</strong>, onde transformo ideias em experiências que não apenas encantam visualmente, mas também são projetadas com rigor para garantir desempenho e usabilidade.
+                            </p>
+                            <p class="mb-4">
+                                Atualmente, atuo como <strong class="font-medium text-white">Product Designer Sênior na Repassa</strong>, com especialização em <strong class="font-medium text-white">acessibilidade e Design System</strong>. Contribuo diretamente para a criação e manutenção de componentes de UI que sustentam o front-end da plataforma, assegurando conformidade com <strong class="font-medium text-white">padrões de acessibilidade web</strong> e as melhores práticas do setor, para entregar uma experiência realmente inclusiva.
+                            </p>
+                            <p class="mb-4">
+                                Minha trajetória inclui a <strong class="font-medium text-white">melhoria da experiência do usuário</strong> em diferentes contextos — de sistemas empresariais e grandes corporações a startups e pequenos negócios digitais. Também participei ativamente de comunidades de empreendedorismo local, apoiando empresários a colocarem o <strong class="font-medium text-white">usuário no centro de suas decisões</strong>.
+                            </p>
+                            <p class="mb-4">
+                                Fora do trabalho, gosto de cozinhar, explorar trilhas correndo em busca de boas paisagens e, acima de tudo, aproveitar o tempo com minha esposa e nossos dois filhos.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Seção Experiência -->
+                    <section id="experiencia" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Work experience">
+                        <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-black px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                            <h2 class="text-sm font-bold uppercase tracking-widest text-white lg:sr-only">Experiência</h2>
+                        </div>
+                        <div>
+                            <ul class="group/list">
+                                <!-- Experiência 1: Repassa -->
+                                <li class="mb-12">
+                                    <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-white/20"></div>
+                                        <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-gray-500 sm:col-span-2" aria-label="Mai 2024 - Atual">MAI 2024 — ATUAL</header>
+                                        <div class="z-10 sm:col-span-6">
+                                            <h3 class="font-medium leading-snug text-white">
+                                                <div>
+                                                    <a class="inline-flex items-baseline font-medium leading-tight text-white hover:text-white focus-visible:text-white group/link text-base" href="https://www.repassa.com.br/" target="_blank" rel="noreferrer noopener">
+                                                        <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                                                        <span>Product Designer · Repassa</span>
+                                                    </a>
+                                                </div>
+                                            </h3>
+                                            <p class="mt-2 text-sm leading-normal">Atuação em produtos de e-commerce e backoffice, melhorando a jornada do usuário e alinhando design e desenvolvimento. Participei ativamente em discoveries com os PO's e otimizei a jornada de devolução de pedidos, reduzindo os custos logísticos em 54%.</p>
+                                            <ul class="mt-2 flex flex-wrap" aria-label="Skills used">
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">E-commerce</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">UX Research</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Otimização de Processos</div></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- Experiência 2: Contmatic -->
+                                <li class="mb-12">
+                                    <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-white/20"></div>
+                                        <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-gray-500 sm:col-span-2" aria-label="Fev 2023 - Mai 2024">FEV 2023 — MAI 2024</header>
+                                        <div class="z-10 sm:col-span-6">
+                                             <h3 class="font-medium leading-snug text-white">
+                                                <div>
+                                                    <a class="inline-flex items-baseline font-medium leading-tight text-white hover:text-white focus-visible:text-white group/link text-base" href="https://www.contmatic.com.br/" target="_blank" rel="noreferrer noopener">
+                                                        <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                                                        <span>UX/UI Designer · Contmatic</span>
+                                                    </a>
+                                                </div>
+                                            </h3>
+                                            <p class="mt-2 text-sm leading-normal">Conduzi pesquisas exploratórias com clientes para mapear melhorias no sistema contábil. Simplifiquei a gestão de relatórios e otimizei ferramentas contábeis, resultando em um aumento de 74% na satisfação dos usuários, medido pelo Google Analytics.</p>
+                                             <ul class="mt-2 flex flex-wrap" aria-label="Skills used">
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">UX Research</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Análise de Dados</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Sistemas Contábeis</div></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- Experiência 3: MERX -->
+                                <li class="mb-12">
+                                    <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-white/20"></div>
+                                        <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-gray-500 sm:col-span-2" aria-label="Mar 2022 - Fev 2023">MAR 2022 — FEV 2023</header>
+                                        <div class="z-10 sm:col-span-6">
+                                             <h3 class="font-medium leading-snug text-white">
+                                                <div>
+                                                    <a class="inline-flex items-baseline font-medium leading-tight text-white hover:text-white focus-visible:text-white group/link text-base" href="https://www.agroplanning.com.br/2025/07/18/merx-acelera-para-se-tornar-o-primeiro-banco-agro-nativo-digital-do-brasil/" target="_blank" rel="noreferrer noopener">
+                                                        <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                                                        <span>Product Designer · MERX</span>
+                                                    </a>
+                                                </div>
+                                            </h3>
+                                            <p class="mt-2 text-sm leading-normal">Desenvolvi o Design System Agri e criei ferramentas para commodities e geoprocessamento. Implementei a funcionalidade de monitoramento de CBIOs, resultando em um aumento de 75% nas vendas e na captação de novos clientes.</p>
+                                             <ul class="mt-2 flex flex-wrap" aria-label="Skills used">
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Design System</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Geoprocessamento</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Commodities</div></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- Experiência 4: Alldesk -->
+                                <li class="mb-12">
+                                    <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-white/20"></div>
+                                        <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-gray-500 sm:col-span-2" aria-label="Abr 2020 - Mar 2022">ABR 2020 — MAR 2022</header>
+                                        <div class="z-10 sm:col-span-6">
+                                             <h3 class="font-medium leading-snug text-white">
+                                                <div>
+                                                    <a class="inline-flex items-baseline font-medium leading-tight text-white hover:text-white focus-visible:text-white group/link text-base" href="https://meirelesefreitas.com.br/" target="_blank" rel="noreferrer noopener">
+                                                        <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                                                        <span>Product Designer · Alldesk</span>
+                                                    </a>
+                                                </div>
+                                            </h3>
+                                            <p class="mt-2 text-sm leading-normal">Reduzi o tempo médio de monitoria em 40% e aumentei a taxa de qualidade de atendimento em 90%, impactando diretamente o desempenho da empresa. Apresentei o produto a investidores, garantindo destaque em programas de investimento.</p>
+                                             <ul class="mt-2 flex flex-wrap" aria-label="Skills used">
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Métricas de Produto</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Qualidade de Atendimento</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Pitch para Investidores</div></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Seção Projetos -->
+                    <section id="projetos" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Selected projects">
+                        <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-black px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                            <h2 class="text-sm font-bold uppercase tracking-widest text-white lg:sr-only">Projetos</h2>
+                        </div>
+                        <div>
+                            <ul class="group/list">
+                                <!-- Projeto 1 -->
+                                <li class="mb-12">
+                                    <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-white/20"></div>
+                                        <div class="z-10 sm:order-2 sm:col-span-6">
+                                            <h3>
+                                                <a class="inline-flex items-baseline font-medium leading-tight text-white hover:text-white focus-visible:text-white group/link text-base" href="#" onclick="showProjectDetail(event, 'projeto-repassa')">
+                                                    <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                                                    <span>
+                                                        Repassa: E-commerce de moda sustentável
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
+                                                    </span>
+                                                </a>
+                                            </h3>
+                                            <p class="mt-2 text-sm leading-normal">
+                                                Redesenhei a jornada de compra e venda da Repassa, o maior brechó online do Brasil. O projeto focou em otimizar a usabilidade, aumentar a conversão e criar uma experiência mais engajadora para os usuários, fortalecendo o conceito de economia circular.
+                                            </p>
+                                            <ul class="mt-2 flex flex-wrap" aria-label="Technologies used">
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">E-commerce</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">UX Strategy</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">UI Design</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Moda Sustentável</div></li>
+                                            </ul>
+                                        </div>
+                                        <img alt="Interface da plataforma Repassa" loading="lazy" width="200" height="48" decoding="async" data-nimg="1" class="rounded border-2 border-gray-800 transition group-hover:border-gray-600 sm:order-1 sm:col-span-2 sm:translate-y-1" style="color:transparent" src="./media/Repassa.png">
+                                    </div>
+                                </li>
+                                 <!-- Projeto 2 -->
+                                <li class="mb-12">
+                                    <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-white/20"></div>
+                                        <div class="z-10 sm:order-2 sm:col-span-6">
+                                            <h3>
+                                                <a class="inline-flex items-baseline font-medium leading-tight text-white hover:text-white focus-visible:text-white group/link text-base" href="#" onclick="showProjectDetail(event, 'projeto-impastudio')">
+                                                    <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                                                    <span>
+                                                        Impastudio: Design, Marketing e Desenvolvimento
+                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
+                                                    </span>
+                                                </a>
+                                            </h3>
+                                            <p class="mt-2 text-sm leading-normal">
+                                               Como co-fundador da Impastudio, atuei em múltiplos projetos para pequenas e médias empresas, oferecendo soluções integradas de design de marca, marketing digital e desenvolvimento de sites. Ajudei negócios locais a fortalecerem sua presença online e alcançarem novos clientes.
+                                            </p>
+                                            <ul class="mt-2 flex flex-wrap" aria-label="Technologies used">
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Branding</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Marketing Digital</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Desenvolvimento Web</div></li>
+                                            </ul>
+                                        </div>
+                                        <img alt="Identidade visual criada para um cliente da Impastudio" loading="lazy" width="200" height="48" decoding="async" data-nimg="1" class="rounded border-2 border-gray-800 transition group-hover:border-gray-600 sm:order-1 sm:col-span-2 sm:translate-y-1" style="color:transparent" src="./media/Impa.png">
+                                    </div>
+                                </li>
+                                 <!-- Projeto 3 -->
+                                <li class="mb-12">
+                                    <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-white/20"></div>
+                                        <div class="z-10 sm:order-2 sm:col-span-6">
+                                            <h3>
+                                                <a class="inline-flex items-baseline font-medium leading-tight text-white hover:text-white focus-visible:text-white group/link text-base" href="#" onclick="showProjectDetail(event, 'projeto-merx')">
+                                                    <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                                                    <span>
+                                                        Merx: Ferramentas de Precisão para o Agronegócio
+                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
+                                                    </span>
+                                                </a>
+                                            </h3>
+                                            <p class="mt-2 text-sm leading-normal">
+                                                Desenvolvi interfaces complexas para uma plataforma agritech B2B, incluindo ferramentas de geoprocessamento, monitoramento de créditos de carbono (CBIOs) e relatórios avançados, focando em usabilidade e precisão de dados.
+                                            </p>
+                                            <ul class="mt-2 flex flex-wrap" aria-label="Technologies used">
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Agritech</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">B2B</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Geoprocessamento</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Design de Dados</div></li>
+                                            </ul>
+                                        </div>
+                                        <img alt="Interface de um chatbot para turistas" loading="lazy" width="200" height="48" decoding="async" data-nimg="1" class="rounded border-2 border-gray-800 transition group-hover:border-gray-600 sm:order-1 sm:col-span-2 sm:translate-y-1" style="color:transparent" src="./media/Merx.png">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Seção Blog -->
+                    <section id="blog" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Blog posts">
+                        <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-black px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                            <h2 class="text-sm font-bold uppercase tracking-widest text-white lg:sr-only">Blog</h2>
+                        </div>
+                        <div>
+                            <ul class="group/list">
+                                <!-- Post 1 -->
+                                <li class="mb-12">
+                                    <div class="group relative grid grid-cols-8 gap-4 transition-all sm:items-center sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-white/20"></div>
+                                        <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-gray-500 sm:col-span-2" aria-label="15 de Agosto, 2024">AGO 15, 2024</header>
+                                        <div class="z-10 sm:col-span-6">
+                                            <h3 class="font-medium leading-snug text-white">
+                                                <a class="inline-flex items-baseline font-medium leading-tight text-white hover:text-white focus-visible:text-white group/link text-base" href="#" target="_blank" rel="noreferrer noopener">
+                                                    <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                                                    <span>
+                                                        Acessibilidade na Prática: 5 Dicas para um Design Inclusivo
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
+                                                    </span>
+                                                </a>
+                                            </h3>
+                                            <p class="mt-2 text-sm leading-normal">
+                                                Explorando como pequenas mudanças no processo de design podem criar um impacto gigante na vida de usuários com diferentes necessidades. Abordamos desde contraste de cores até navegação por teclado.
+                                            </p>
+                                            <ul class="mt-2 flex flex-wrap" aria-label="Tags">
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Acessibilidade</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">WCAG</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">UX Design</div></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- Post 2 -->
+                                <li class="mb-12">
+                                     <div class="group relative grid grid-cols-8 gap-4 transition-all sm:items-center sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-white/20"></div>
+                                        <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-gray-500 sm:col-span-2" aria-label="22 de Julho, 2024">JUL 22, 2024</header>
+                                        <div class="z-10 sm:col-span-6">
+                                            <h3 class="font-medium leading-snug text-white">
+                                                <a class="inline-flex items-baseline font-medium leading-tight text-white hover:text-white focus-visible:text-white group/link text-base" href="#" target="_blank" rel="noreferrer noopener">
+                                                    <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                                                    <span>
+                                                        Design Systems: Mais do que uma Biblioteca de Componentes
+                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
+                                                    </span>
+                                                </a>
+                                            </h3>
+                                            <p class="mt-2 text-sm leading-normal">
+                                                Um mergulho profundo em como um Design System bem estruturado pode acelerar o desenvolvimento, garantir consistência visual e fortalecer a colaboração entre equipes de design e engenharia.
+                                            </p>
+                                             <ul class="mt-2 flex flex-wrap" aria-label="Tags">
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Design System</div></li>
+                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">UI Engineering</div></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <footer class="max-w-md pb-16 text-sm text-gray-500 sm:pb-0">
+                        <p>
+                           Feito à mão por mim. Construído com HTML, Tailwind CSS e uma xícara de café.
+                        </p>
+                    </footer>
+                </div>
+
+                <!-- Conteúdo do Detalhe do Projeto (inicialmente escondido) -->
+                <div id="project-detail-content" class="hidden">
+                     <section id="projeto-repassa" class="project-page hidden">
+                        <div class="mb-8">
+                           <a href="#" onclick="hideProjectDetail(event)" class="group mb-2 inline-flex items-center font-semibold leading-tight text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mr-1 h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-2" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"></path></svg>
+                                Voltar
+                            </a>
+                        </div>
+                        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">Repassa: E-commerce de moda sustentável</h1>
+                        <p class="mt-3 text-lg leading-relaxed">Redesenhando a experiência de finalização de compra para impulsionar as vendas e a satisfação do usuário no maior brechó online do Brasil.</p>
+                        
+                        <div class="mt-6">
+                            <a class="group inline-flex items-center font-semibold leading-tight text-white" href="https://www.repassa.com.br/" target="_blank" rel="noopener noreferrer" aria-label="Visitar o site da Repassa (abre em uma nova aba)">
+                                <span>
+                                    <span class="border-b border-transparent pb-px transition group-hover:border-white motion-reduce:transition-none">Visitar Site </span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-focus-visible:-translate-y-1 group-focus-visible:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
+                                </span>
+                            </a>
+                        </div>
+
+                        <img src="https://placehold.co/800x450/1a1a1a/ffffff?text=Capa+do+Projeto+Repassa" alt="Imagem de capa do projeto Repassa" class="my-8 rounded-lg border-2 border-gray-800">
+
+                        <div class="space-y-12">
+                            <div>
+                                <h2 class="text-2xl font-bold tracking-tight text-white">O Desafio: Um Funil de Vendas com Vazamentos</h2>
+                                <p class="mt-4">O checkout da Repassa, embora funcional, apresentava pontos de atrito que resultavam em uma taxa de abandono de carrinho acima da média do setor. O objetivo era claro: redesenhar o fluxo de finalização de compra para torná-lo mais rápido, intuitivo e confiável, a fim de aumentar a conversão de vendas e otimizar o funil como um todo.</p>
+                            </div>
+                            
+                            <div>
+                                <h2 class="text-2xl font-bold tracking-tight text-white">Minha Jornada: Do Problema à Solução</h2>
+                                <p class="mt-4">Assumi a liderança deste projeto com a missão de transformar o checkout em um ponto forte da experiência Repassa. Minha atuação cobriu todo o ciclo de vida do design, desde a imersão profunda nos dados até a entrega final para o time de desenvolvimento.</p>
+                                
+                                <div class="mt-8 space-y-8">
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-white">1. Discovery: Ouvindo os Dados</h3>
+                                        <p class="mt-2">Minha jornada começou com um mergulho profundo nos dados. Utilizando ferramentas como <strong class="text-gray-300">Google Analytics</strong> e <strong class="text-gray-300">Clarity</strong>, identifiquei os principais gargalos no funil de compra e os pontos onde os usuários mais abandonavam o processo. Análises de <strong class="text-gray-300">NPS</strong> também forneceram insights qualitativos valiosos sobre a frustração dos clientes. Com esse mapa de problemas em mãos, parti para a fase de benchmarking, analisando as melhores práticas de checkout em e-commerces de destaque para inspirar nossa solução.</p>
+                                         <img src="https://placehold.co/800x400/1a1a1a/ffffff?text=Gráficos+de+Análise+de+Dados" alt="Gráficos e dados da fase de discovery" class="mt-4 rounded-lg border-2 border-gray-800">
+                                    </div>
+
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-white">2. Ideação e Design: Do Rascunho à Interface</h3>
+                                        <p class="mt-2">Com os problemas e oportunidades mapeados, iniciei o processo de ideação com <strong class="text-gray-300">low-frames</strong> para explorar diferentes abordagens estruturais. Adotando uma estratégia <strong class="text-gray-300">mobile-first</strong>, concentrei-me em criar uma experiência limpa e direta para a tela menor, garantindo que a simplicidade se mantivesse ao escalar para o desktop. Cada etapa do fluxo — do carrinho ao pagamento — foi cuidadosamente desenhada no Figma, priorizando a clareza e a redução do esforço cognitivo do usuário.</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-white">3. Prototipagem e Validação: Testando com Pessoas Reais</h3>
+                                        <p class="mt-2">O design ganhou vida através de um protótipo de alta fidelidade 100% interativo, criado no <strong class="text-gray-300">Figma</strong>. Para validar a eficácia da nova solução, conduzi testes de usabilidade com um grupo diversificado de <strong class="text-gray-300">8 colaboradores da Repassa e da Renner</strong>. Os resultados foram excepcionais: alcançamos um <strong class="text-gray-300">score SUS (System Usability Scale) de 97</strong>, o que nos coloca no <strong class="text-gray-300">percentil 99</strong> em termos de usabilidade. Esse feedback extremamente positivo nos deu a confiança necessária para seguir em frente.</p>
+                                         <img src="https://placehold.co/800x450/1a1a1a/ffffff?text=Protótipo+Interativo+no+Figma" alt="Protótipo do novo checkout no Figma" class="mt-4 rounded-lg border-2 border-gray-800">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h2 class="text-2xl font-bold tracking-tight text-white">Handoff e Próximos Passos</h2>
+                                <p class="mt-4">Com o design validado, preparei um handoff detalhado para a equipe de desenvolvimento, garantindo que todas as especificações, componentes e fluxos estivessem claros para uma implementação precisa. Para medir o sucesso pós-lançamento, definimos o acompanhamento contínuo do nosso funil de compra como principal KPI e implementamos um formulário de avaliação para coletar feedback direto dos usuários sobre o novo fluxo, garantindo um ciclo de melhoria contínua.</p>
+                            </div>
+                        </div>
+                     </section>
+                     <section id="projeto-impastudio" class="project-page hidden">
+                        <div class="mb-8">
+                           <a href="#" onclick="hideProjectDetail(event)" class="group mb-2 inline-flex items-center font-semibold leading-tight text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mr-1 h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-2" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"></path></svg>
+                                Voltar
+                            </a>
+                        </div>
+                        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">Impastudio: Criando Impacto na Tríplice Fronteira</h1>
+                        <p class="mt-3 text-lg leading-relaxed">Capacitando empreendedores locais com design, marketing e desenvolvimento sob medida.</p>
+                        
+                        <div class="mt-6">
+                            <a class="group inline-flex items-center font-semibold leading-tight text-white" href="#" target="_blank" rel="noopener noreferrer" aria-label="Visitar o site da Impastudio (abre em uma nova aba)">
+                                <span>
+                                    <span class="border-b border-transparent pb-px transition group-hover:border-white motion-reduce:transition-none">Visitar Site </span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-focus-visible:-translate-y-1 group-focus-visible:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
+                                </span>
+                            </a>
+                        </div>
+
+                        <img src="https://placehold.co/800x450/1a1a1a/ffffff?text=Branding+Impastudio" alt="Identidade visual da Impastudio" class="my-8 rounded-lg border-2 border-gray-800">
+
+                        <div class="space-y-12">
+                            <div>
+                                <h2 class="text-2xl font-bold tracking-tight text-white">O Desafio: Navegando em um Mercado Multicultural</h2>
+                                <p class="mt-4">Na vibrante Tríplice Fronteira entre Brasil, Paraguai e Argentina, empreendedores locais enfrentam um desafio único: como criar uma marca e uma presença digital que dialogue com públicos de diferentes culturas e nacionalidades? A necessidade era por uma solução integrada que não apenas fornecesse um design bonito, mas que gerasse <strong class="text-gray-300">impacto real</strong> nos negócios.</p>
+                            </div>
+                            
+                            <div>
+                                <h2 class="text-2xl font-bold tracking-tight text-white">A Solução: Nasce o Impastudio</h2>
+                                <p class="mt-4">Foi a partir dessa necessidade que co-fundei o Impastudio. O nome já diz tudo: <strong class="text-gray-300">"Impa"</strong> de impacto e <strong class="text-gray-300">"Studio"</strong> porque nos propusemos a ser um ateliê completo para todas as necessidades digitais de um empreendedor. Nossa filosofia de branding foi ousada: unir elementos das bandeiras do Brasil e do Paraguai para criar uma identidade visual que representasse essa fusão cultural, mostrando que entendíamos a essência da nossa região.</p>
+                                
+                                <div class="mt-8 space-y-8">
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-white">Minha Atuação como Co-fundador e Designer</h3>
+                                        <p class="mt-2">Como força criativa do estúdio, minha função era multifacetada. Eu era responsável por traduzir a visão dos nossos clientes em realidade, desde a concepção do <strong class="text-gray-300">branding</strong> até o desenvolvimento de <strong class="text-gray-300">websites funcionais</strong> e a criação de <strong class="text-gray-300">campanhas de marketing digital</strong> que gerassem resultados. Atuei como um parceiro estratégico, ajudando cada empreendedor a construir uma base sólida para o sucesso no ambiente digital.</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-white">Resultados e Impacto Local</h3>
+                                        <p class="mt-2">Ao longo da jornada do Impastudio, capacitamos dezenas de negócios locais a não apenas sobreviver, mas prosperar no cenário digital. Nossos projetos resultaram em aumentos significativos de visibilidade, engajamento e, o mais importante, vendas. Mais do que entregar websites e logotipos, entregamos confiança e crescimento para a comunidade empreendedora da Tríplice Fronteira, provando que o design estratégico é uma ferramenta poderosa para gerar impacto real.</p>
+                                         <img src="https://placehold.co/800x450/1a1a1a/ffffff?text=Website+de+Cliente" alt="Exemplo de website desenvolvido para um cliente" class="mt-4 rounded-lg border-2 border-gray-800">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </section>
+                     <section id="projeto-merx" class="project-page hidden">
+                        <div class="mb-8">
+                           <a href="#" onclick="hideProjectDetail(event)" class="group mb-2 inline-flex items-center font-semibold leading-tight text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mr-1 h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-2" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"></path></svg>
+                                Voltar
+                            </a>
+                        </div>
+                        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">Merx: Desenhando o Futuro do Agronegócio com Dados</h1>
+                        <p class="mt-3 text-lg leading-relaxed">A criação de interfaces B2B para geoprocessamento, monitoramento de CBIOs e relatórios complexos.</p>
+                        
+                        <div class="mt-6">
+                            <a class="group inline-flex items-center font-semibold leading-tight text-white" href="https://merx.ag/" target="_blank" rel="noopener noreferrer" aria-label="Visitar o site da Merx (abre em uma nova aba)">
+                                <span>
+                                    <span class="border-b border-transparent pb-px transition group-hover:border-white motion-reduce:transition-none">Visitar Site </span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-focus-visible:-translate-y-1 group-focus-visible:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
+                                </span>
+                            </a>
+                        </div>
+
+                        <img src="https://placehold.co/800x450/1a1a1a/ffffff?text=Dashboard+Agritech" alt="Dashboard da plataforma Merx" class="my-8 rounded-lg border-2 border-gray-800">
+
+                        <div class="space-y-12">
+                            <div>
+                                <h2 class="text-2xl font-bold tracking-tight text-white">O Desafio: Traduzindo a Complexidade do Campo em Simplicidade Digital</h2>
+                                <p class="mt-4">O setor do agronegócio B2B lida com uma quantidade massiva de dados heterogêneos: imagens de satélite, cotações de commodities, regulamentações de créditos de carbono, entre outros. O desafio era criar uma plataforma digital que não apenas centralizasse essas informações, mas as tornasse acionáveis. Como transformar mapas de calor de geoprocessamento e a volatilidade dos CBIOs em interfaces intuitivas que capacitassem os usuários a tomar decisões estratégicas?</p>
+                            </div>
+                            
+                            <div>
+                                <h2 class="text-2xl font-bold tracking-tight text-white">Minha Atuação: Arquitetando a Experiência de Dados</h2>
+                                <p class="mt-4">Como Product Designer na Merx, fui responsável por projetar as interfaces de três pilares da plataforma. Meu trabalho começou com a criação do <strong class="text-gray-300">Design System Agri</strong>, uma biblioteca de componentes que garantiu consistência e agilidade no desenvolvimento. A partir dessa base, mergulhei no desenho de cada uma das ferramentas.</p>
+                                
+                                <div class="mt-8 space-y-8">
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-white">1. Geoprocessamento Inteligente e Acessível</h3>
+                                        <p class="mt-2">Projetei uma interface baseada em mapas que permitia aos usuários visualizar e sobrepor camadas de dados complexos — desde a saúde da lavoura até o histórico de produtividade. O foco foi criar uma experiência interativa e fluida, onde a análise de grandes áreas geográficas se tornasse uma tarefa simples e visualmente rica.</p>
+                                         <img src="https://placehold.co/800x400/1a1a1a/ffffff?text=Interface+de+Geoprocessamento" alt="Interface de mapa com camadas de dados de geoprocessamento" class="mt-4 rounded-lg border-2 border-gray-800">
+                                    </div>
+
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-white">2. Monitoramento de CBIOs (Créditos de Carbono)</h3>
+                                        <p class="mt-2">Para desmistificar o mercado de créditos de carbono, desenhei um dashboard que traduzia a complexidade financeira e ambiental dos CBIOs em visualizações claras. A interface permitia o acompanhamento em tempo real da geração, certificação e negociação dos créditos, fornecendo segurança e transparência para os investidores.</p>
+                                         <img src="https://placehold.co/800x400/1a1a1a/ffffff?text=Dashboard+de+Monitoramento+de+CBIOs" alt="Dashboard com gráficos e métricas de CBIOs" class="mt-4 rounded-lg border-2 border-gray-800">
+                                    </div>
+                                    
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-white">3. Relatórios para Decisões Estratégicas</h3>
+                                        <p class="mt-2">Criei um módulo de relatórios flexível, onde os usuários podiam construir seus próprios dashboards e exportar análises customizadas. A interface drag-and-drop e a vasta biblioteca de widgets permitiram que cada cliente adaptasse a visualização de dados às suas necessidades específicas, transformando informação bruta em inteligência de negócio.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h2 class="text-2xl font-bold tracking-tight text-white">Resultados: Impacto Direto no Negócio</h2>
+                                <p class="mt-4">O design centrado no usuário das novas ferramentas foi crucial para o sucesso da plataforma. A funcionalidade de monitoramento de CBIOs, em particular, foi um divisor de águas, resultando em um <strong class="text-gray-300">aumento de 75% nas vendas</strong> e na captação de uma nova e estratégica carteira de clientes. O projeto provou que um bom design não apenas simplifica tarefas complexas, mas também gera um valor comercial mensurável.</p>
+                            </div>
+                        </div>
+                     </section>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('#main-content section[id]');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            if (sections.length > 0 && navLinks.length > 0) {
+                 const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            navLinks.forEach(link => link.classList.remove('active'));
+                            
+                            const activeLink = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+                            if (activeLink) {
+                                activeLink.classList.add('active');
+                            }
+                        }
+                    });
+                }, {
+                    rootMargin: "-30% 0px -70% 0px"
+                });
+        
+                sections.forEach(section => {
+                    observer.observe(section);
+                });
+            }
+
+        });
+
+        // Scripts para mostrar/esconder o detalhe do projeto
+        const mainContent = document.getElementById('main-content');
+        const projectDetailContent = document.getElementById('project-detail-content');
+        const portfolioHeader = document.getElementById('portfolio-header');
+
+        function showProjectDetail(event, projectId) {
+            event.preventDefault();
+            mainContent.classList.add('hidden');
+            if (portfolioHeader) {
+                portfolioHeader.classList.add('hidden');
+            }
+            projectDetailContent.classList.remove('hidden');
+
+            // Esconde todos os outros detalhes de projeto
+            const allProjectPages = document.querySelectorAll('.project-page');
+            allProjectPages.forEach(page => {
+                page.classList.add('hidden');
+            });
+
+            // Mostra o detalhe do projeto clicado
+            const targetProject = document.getElementById(projectId);
+            if (targetProject) {
+                targetProject.classList.remove('hidden');
+            }
+
+            window.scrollTo(0, 0);
+        }
+
+        function hideProjectDetail(event) {
+            event.preventDefault();
+            projectDetailContent.classList.add('hidden');
+            mainContent.classList.remove('hidden');
+            if (portfolioHeader) {
+                portfolioHeader.classList.remove('hidden');
+            }
+            const projectsSection = document.getElementById('projetos');
+            if(projectsSection) {
+                projectsSection.scrollIntoView();
+                history.replaceState(null, '', '#projetos');
+            }
+        }
+    </script>
+    <script>
+        class ArrowPointer {
+          constructor() {
+            this.root = document.body
+            this.cursor = document.querySelector(".curzr")
+
+            this.position = {
+              distanceX: 0, 
+              distanceY: 0,
+              distance: 0,
+              pointerX: 0,
+              pointerY: 0,
+            },
+            this.previousPointerX = 0
+            this.previousPointerY = 0
+            this.angle = 0
+            this.previousAngle = 0
+            this.angleDisplace = 0
+            this.degrees = 57.296
+            this.cursorSize = 32
+
+            this.cursorStyle = {
+              boxSizing: 'border-box',
+              position: 'fixed',
+              top: '0px',
+              left: `${ -this.cursorSize / 2 }px`,
+              zIndex: '2147483647',
+              width: `${ this.cursorSize }px`,
+              height: `${ this.cursorSize }px`,
+              transition: '250ms, transform 100ms',
+              userSelect: 'none',
+              pointerEvents: 'none'
+            }
+
+            this.init(this.cursor, this.cursorStyle)
+          }
+
+          init(el, style) {
+            Object.assign(el.style, style)
+            this.cursor.removeAttribute("hidden")
+            
+          }
+
+          move(event) {
+            this.previousPointerX = this.position.pointerX
+            this.previousPointerY = this.position.pointerY
+            this.position.pointerX = event.pageX - window.scrollX
+            this.position.pointerY = event.pageY - window.scrollY
+            this.position.distanceX = this.previousPointerX - this.position.pointerX
+            this.position.distanceY = this.previousPointerY - this.position.pointerY
+            this.distance = Math.sqrt(this.position.distanceY ** 2 + this.position.distanceX ** 2)
+          
+            this.cursor.style.transform = `translate3d(${this.position.pointerX}px, ${this.position.pointerY}px, 0)`
+
+            if (this.distance > 1) {
+              this.rotate(this.position)
+            } else {
+              this.cursor.style.transform += ` rotate(${this.angleDisplace}deg)`
+            }
+          }
+
+          rotate(position) {
+            let unsortedAngle = Math.atan(Math.abs(position.distanceY) / Math.abs(position.distanceX)) * this.degrees
+            let modAngle
+            const style = this.cursor.style
+            this.previousAngle = this.angle
+
+            if (position.distanceX <= 0 && position.distanceY >= 0) {
+              this.angle = 90 - unsortedAngle + 0
+            } else if (position.distanceX < 0 && position.distanceY < 0) {
+              this.angle = unsortedAngle + 90
+            } else if (position.distanceX >= 0 && position.distanceY <= 0) {
+              this.angle = 90 - unsortedAngle + 180
+            } else if (position.distanceX > 0 && position.distanceY > 0) {
+              this.angle = unsortedAngle + 270
+            }
+
+            if (isNaN(this.angle)) {
+              this.angle = this.previousAngle
+            } else {
+              if (this.angle - this.previousAngle <= -270) {
+                this.angleDisplace += 360 + this.angle - this.previousAngle
+              } else if (this.angle - this.previousAngle >= 270) {
+                this.angleDisplace += this.angle - this.previousAngle - 360
+              } else {
+                this.angleDisplace += this.angle - this.previousAngle
+              }
+            }
+            style.transform += ` rotate(${this.angleDisplace}deg)`
+
+            setTimeout(() => {
+              modAngle = this.angleDisplace >= 0 ? this.angleDisplace % 360 : 360 + this.angleDisplace % 360
+              if (modAngle >= 45 && modAngle < 135) {
+                style.left = `${ -this.cursorSize }px`
+                style.top = `${ -this.cursorSize / 2 }px`
+              } else if (modAngle >= 135 && modAngle < 225) {
+                style.left = `${ -this.cursorSize / 2 }px`
+                style.top = `${ -this.cursorSize }px`
+              } else if (modAngle >= 225 && modAngle < 315) {
+                style.left = '0px'
+                style.top = `${ -this.cursorSize / 2 }px`
+              } else {
+                style.left = `${ -this.cursorSize / 2 }px`
+                style.top = '0px'
+              }
+            }, 0)
+          }
+
+          remove() {
+            this.cursor.remove()
+          }
+        }
+
+        (() => {
+          const cursor = new ArrowPointer()
+          if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {     
+            document.onmousemove = function (event) {
+              cursor.move(event)
+            }
+            
+            document.querySelectorAll('a, button, .group').forEach((el) => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.cursor.style.transform += ' scale(1.5)';
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.cursor.style.transform = cursor.cursor.style.transform.replace(' scale(1.5)', '');
+                });
+            });
+
+          } else {
+            cursor.remove()
+          }
+        })()
+    </script>
+</body>
+</html>
+
+
