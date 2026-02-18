@@ -1,808 +1,846 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="scroll-smooth">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cleidson Franklin | Portfólio de Product Designer</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Portfólio de Cleidson Franklin, Product Designer especialista em criar produtos digitais acessíveis e focados no usuário. Explore meus projetos em e-commerce, agritech e mais.">
-    <meta name="keywords" content="Product Designer, UX Designer, UI Designer, Portfólio, Cleidson Franklin, Experiência do Usuário, Design de Produto, Agritech, E-commerce, Design System">
+    <title>Cleidson Franklin | Senior Product Designer</title>
+    <meta name="description" content="Product Designer focado em estratégia, usabilidade e escala. Especialista em Design Systems e AI Ops.">
+    <meta name="keywords" content="Product Design, UX Design, Design System, Figma, AI, NoCode, Cleidson Franklin">
     <meta name="author" content="Cleidson Franklin">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Cleidson Franklin | Portfólio de Product Designer">
-    <meta property="og:description" content="Portfólio de Cleidson Franklin, Product Designer especialista em criar produtos digitais acessíveis e focados no usuário.">
-    <meta property="og:image" content="https://placehold.co/1200x630/1a1a1a/ffffff?text=Cleidson+Franklin">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Cleidson Franklin | Portfólio de Product Designer">
-    <meta property="twitter:description" content="Portfólio de Cleidson Franklin, Product Designer especialista em criar produtos digitais acessíveis e focados no usuário.">
-    <meta property="twitter:image" content="https://placehold.co/1200x630/1a1a1a/ffffff?text=Cleidson+Franklin">
-
+    
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230f172a%22/><text y=%2250%%22 x=%2250%%22 dy=%22.35em%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22monospace%22 font-weight=%22bold%22 font-size=%2250%22>CF</text></svg>">
 
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
-        /* Estilo para a fonte Inter */
-        body {
-            font-family: 'Inter', sans-serif;
-            cursor: none;
+        body { font-family: 'Inter', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        html { scroll-padding-top: 5rem; }
+        
+        /* Grid de Fundo Sutil */
+        .bg-tech-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, #f1f5f9 1px, transparent 1px),
+                              linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
         }
-        a, button, .group {
-            cursor: none;
+
+        /* Textura de Ruído (Noise) */
+        .bg-noise { position: relative; }
+        .bg-noise::before {
+            content: "";
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 0;
         }
-        /* Estilos para o link de navegação ativo */
-        .nav a.active .nav-indicator {
-            width: 1rem; /* 16px, w-4 */
-            background-color: #ffffff; /* white */
+        .bg-noise > * { position: relative; z-index: 1; }
+
+        /* Spotlight Effect */
+        .spotlight-card {
+            position: relative; overflow: hidden; --mouse-x: 50%; --mouse-y: 50%;
         }
-        .nav a.active .nav-text {
-            color: #ffffff; /* white */
+        .spotlight-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(16, 185, 129, 0.08), transparent 40%);
+            opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 0;
+        }
+        .spotlight-card:hover::before { opacity: 1; }
+        .spotlight-card > * { position: relative; z-index: 1; }
+
+        /* Animações */
+        .reveal {
+            opacity: 0; transform: translateY(20px); animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        
+        /* Navbar Inteligente */
+        #navbar-wrapper { transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1); }
+        #navbar-wrapper.nav-hidden { transform: translateY(-150%); }
+        
+        /* Scroll Progress */
+        #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: #10b981; z-index: 9999; width: 0%; transition: width 0.1s; }
+
+        /* Wireframe Pattern */
+        .wireframe-box {
+            background-image: linear-gradient(45deg, #1e293b 25%, transparent 25%, transparent 75%, #1e293b 75%, #1e293b), 
+                              linear-gradient(45deg, #1e293b 25%, transparent 25%, transparent 75%, #1e293b 75%, #1e293b);
+            background-position: 0 0, 10px 10px; background-size: 20px 20px; opacity: 0.05;
+        }
+
+        /* Painel Lateral (Personal Hub) */
+        #personal-panel { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        #personal-panel.open { transform: translateX(0); }
+        #personal-overlay { transition: opacity 0.5s ease, visibility 0.5s ease; }
+        #personal-overlay.open { opacity: 1; visibility: visible; }
+
+        /* Command Palette Modal */
+        #cmdk-overlay { transition: opacity 0.2s ease, visibility 0.2s ease; }
+        #cmdk-overlay.open { opacity: 1; visibility: visible; }
+        #cmdk-modal { transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease; transform: scale(0.95); opacity: 0; }
+        #cmdk-overlay.open #cmdk-modal { transform: scale(1); opacity: 1; }
+        .cmdk-item { cursor: pointer; transition: all 0.1s; }
+        .cmdk-item:hover, .cmdk-item.selected { background-color: #f1f5f9; border-left: 3px solid #0f172a; padding-left: 13px; }
+        
+        @keyframes brain-attention {
+            0% { box-shadow: 0 0 0 0 rgba(15, 23, 42, 0.3); transform: scale(1); }
+            70% { box-shadow: 0 0 0 6px rgba(15, 23, 42, 0); transform: scale(1.05); }
+            100% { box-shadow: 0 0 0 0 rgba(15, 23, 42, 0); transform: scale(1); }
+        }
+        .animate-brain { animation: brain-attention 3s infinite; }
+
+        @media print {
+            nav, .no-print, #progress-bar, #personal-panel, #mobile-menu-btn, #cmdk-overlay { display: none !important; }
+            .bg-tech-grid { background-image: none; }
         }
     </style>
 </head>
-<body class="bg-black leading-relaxed text-gray-400 antialiased selection:bg-white selection:text-black">
-    <div class="curzr" hidden>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-        <path class="inner" d="M25,30a5.82,5.82,0,0,1-1.09-.17l-.2-.07-7.36-3.48a.72.72,0,0,0-.35-.08.78.78,0,0,0-.33.07L8.24,29.54a.66.66,0,0,1-.2.06,5.17,5.17,0,0,1-1,.15,3.6,3.6,0,0,1-3.29-5L12.68,4.2a3.59,3.59,0,0,1,6.58,0l9,20.74A3.6,3.6,0,0,1,25,30Z" fill="#F2F5F8" />
-        <path class="outer" d="M16,3A2.59,2.59,0,0,1,18.34,4.6l9,20.74A2.59,2.59,0,0,1,25,29a5.42,5.42,0,0,1-.86-.15l-7.37-3.48a1.84,1.84,0,0,0-.77-.17,1.69,1.69,0,0,0-.73.16l-7.4,3.31a5.89,5.89,0,0,1-.79.12,2.59,2.59,0,0,1-2.37-3.62L13.6,4.6A2.58,2.58,0,0,1,16,3m0-2h0A4.58,4.58,0,0,0,11.76,3.8L2.84,24.33A4.58,4.58,0,0,0,7,30.75a6.08,6.08,0,0,0,1.21-.17,1.87,1.87,0,0,0,.4-.13L16,27.18l7.29,3.44a1.64,1.64,0,0,0,.39.14A6.37,6.37,0,0,0,25,31a4.59,4.59,0,0,0,4.21-6.41l-9-20.75A4.62,4.62,0,0,0,16,1Z" fill="#111920" />
-      </svg>
-    </div>
-    <!-- Contêiner principal com layout flexível para desktop -->
-    <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
-        <div class="lg:flex lg:justify-between lg:gap-4">
-            
-            <!-- Coluna Esquerda Fixa (Header) -->
-            <header id="portfolio-header" class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
-                <div>
-                    <img class="h-40 w-40 rounded-full mb-4 border-2 border-gray-800 object-cover" src="./media/retrato.jpg" alt="Foto de perfil de Cleidson Franklin">
-                    <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                        <a href="/">Cleidson Franklin</a>
-                    </h1>
-                    <h2 class="mt-3 text-lg font-medium tracking-tight text-white sm:text-xl">
-                        Product Designer
-                    </h2>
-                    <p class="mt-4 max-w-xs leading-normal">
-                        Eu crio produtos digitais acessíveis e focados no usuário, unindo design e estratégia.
-                    </p>
+<body class="bg-white text-slate-900 antialiased selection:bg-emerald-100 selection:text-emerald-900 bg-tech-grid relative overflow-x-hidden">
 
-                    <!-- Navegação -->
-                    <nav class="nav hidden lg:block" aria-label="In-page jump links">
-                        <ul class="mt-16 w-max">
-                            <li>
-                                <a class="group flex items-center py-3" href="#sobre">
-                                    <span class="nav-indicator mr-4 h-2 w-2 rounded-full bg-gray-700 transition-all group-hover:w-4 group-hover:bg-white group-focus-visible:w-4 group-focus-visible:bg-white motion-reduce:transition-none"></span>
-                                    <span class="nav-text text-xs font-bold uppercase tracking-widest text-gray-400 group-hover:text-white group-focus-visible:text-white">
-                                        Sobre
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="group flex items-center py-3" href="#experiencia">
-                                    <span class="nav-indicator mr-4 h-2 w-2 rounded-full bg-gray-700 transition-all group-hover:w-4 group-hover:bg-white group-focus-visible:w-4 group-focus-visible:bg-white motion-reduce:transition-none"></span>
-                                    <span class="nav-text text-xs font-bold uppercase tracking-widest text-gray-400 group-hover:text-white group-focus-visible:text-white">
-                                        Experiência
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="group flex items-center py-3" href="#projetos">
-                                    <span class="nav-indicator mr-4 h-2 w-2 rounded-full bg-gray-700 transition-all group-hover:w-4 group-hover:bg-white group-focus-visible:w-4 group-focus-visible:bg-white motion-reduce:transition-none"></span>
-                                    <span class="nav-text text-xs font-bold uppercase tracking-widest text-gray-400 group-hover:text-white group-focus-visible:text-white">
-                                        Projetos
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="group flex items-center py-3" href="#blog">
-                                    <span class="nav-indicator mr-4 h-2 w-2 rounded-full bg-gray-700 transition-all group-hover:w-4 group-hover:bg-white group-focus-visible:w-4 group-focus-visible:bg-white motion-reduce:transition-none"></span>
-                                    <span class="nav-text text-xs font-bold uppercase tracking-widest text-gray-400 group-hover:text-white group-focus-visible:text-white">
-                                        Blog
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+    <div id="progress-bar"></div>
+
+    <!-- COMMAND PALETTE (CMD+K) -->
+    <div id="cmdk-overlay" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-[100] opacity-0 invisible flex items-start justify-center pt-[15vh]" onclick="toggleCmdK()">
+        <div id="cmdk-modal" class="bg-white w-full max-w-lg rounded-xl shadow-2xl border border-slate-200 overflow-hidden" onclick="event.stopPropagation()">
+            <div class="border-b border-slate-100 p-4 flex items-center gap-3">
+                <i class="ph-bold ph-magnifying-glass text-slate-400 text-lg"></i>
+                <input type="text" placeholder="O que você procura?..." class="w-full outline-none text-slate-700 placeholder:text-slate-400" autofocus>
+                <span class="text-xs font-mono text-slate-400 border border-slate-200 rounded px-1.5 py-0.5">ESC</span>
+            </div>
+            <div class="py-2">
+                <div class="px-4 py-2 text-[10px] font-mono text-slate-400 uppercase tracking-widest">Navegação</div>
+                <div class="cmdk-item px-4 py-3 flex items-center justify-between text-slate-600" onclick="navigateTo('#manifesto')">
+                    <span class="flex items-center gap-3"><i class="ph-fill ph-file-text"></i> Manifesto</span>
                 </div>
-
-                <!-- Redes Sociais -->
-                <ul class="ml-1 mt-8 flex items-center" aria-label="Social media">
-                    <li class="mr-5 text-xs shrink-0">
-                        <a class="block hover:text-white" href="https://www.linkedin.com/in/cleidson-productdesigner/" target="_blank" rel="noreferrer noopener">
-                           <span class="sr-only">LinkedIn</span>
-                           <img src="./media/Linkedin.png" alt="">
-                        </a>
-                    </li>
-                     <li class="mr-5 text-xs shrink-0">
-                        <a class="block hover:text-white" href="https://github.com/cleidsonux" target="_blank" rel="noreferrer noopener">
-                            <span class="sr-only">GitHub</span>
-                            <img src="./media/Git.png" alt="">
-                        </a>
-                    </li>
-                     <li class="mr-5 text-xs shrink-0">
-                        <a class="block hover:text-white" href="https://www.behance.net/cleidson-uiux" target="_blank" rel="noreferrer noopener">
-                            <span class="sr-only">Behance</span>
-                            <img src="./media/behance.png" alt="">
-                        </a>
-                    </li>
-                     <li class="text-xs shrink-0">
-                        <a class="block hover:text-white" href="https://www.instagram.com/franklinstech?igsh=MTk1bXdraHVwcXdnMw%3D%3D&utm_source=qr" target="_blank" rel="noreferrer noopener">
-                            <span class="sr-only">Instagram</span>
-                            <img src="./media/Insta.png" alt="">
-                        </a>
-                    </li>
-                </ul>
-            </header>
-            
-            <!-- Coluna Direita com Scroll (Conteúdo Principal) -->
-            <main id="content" class="pt-24 lg:w-1/2 lg:py-24">
+                <div class="cmdk-item px-4 py-3 flex items-center justify-between text-slate-600" onclick="navigateTo('#cases')">
+                    <span class="flex items-center gap-3"><i class="ph-fill ph-briefcase"></i> Cases</span>
+                </div>
                 
-                <!-- Conteúdo Principal do Portfólio -->
-                <div id="main-content">
-                    <!-- Seção Sobre -->
-                    <section id="sobre" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
-                        <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-black px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                            <h2 class="text-sm font-bold uppercase tracking-widest text-white lg:sr-only">Sobre</h2>
-                        </div>
-                        <div>
-                            <p class="mb-4">
-                                Sou Product Designer apaixonado por criar <strong class="font-medium text-white">interfaces acessíveis e visualmente precisas</strong>, que unem design inteligente a engenharia robusta. Meu foco está na <strong class="font-medium text-white">interseção entre design e desenvolvimento</strong>, onde transformo ideias em experiências que não apenas encantam visualmente, mas também são projetadas com rigor para garantir desempenho e usabilidade.
-                            </p>
-                            <p class="mb-4">
-                                Atualmente, atuo como <strong class="font-medium text-white">Product Designer Sênior na Repassa</strong>, com especialização em <strong class="font-medium text-white">acessibilidade e Design System</strong>. Contribuo diretamente para a criação e manutenção de componentes de UI que sustentam o front-end da plataforma, assegurando conformidade com <strong class="font-medium text-white">padrões de acessibilidade web</strong> e as melhores práticas do setor, para entregar uma experiência realmente inclusiva.
-                            </p>
-                            <p class="mb-4">
-                                Minha trajetória inclui a <strong class="font-medium text-white">melhoria da experiência do usuário</strong> em diferentes contextos — de sistemas empresariais e grandes corporações a startups e pequenos negócios digitais. Também participei ativamente de comunidades de empreendedorismo local, apoiando empresários a colocarem o <strong class="font-medium text-white">usuário no centro de suas decisões</strong>.
-                            </p>
-                            <p class="mb-4">
-                                Fora do trabalho, gosto de cozinhar, explorar trilhas correndo em busca de boas paisagens e, acima de tudo, aproveitar o tempo com minha esposa e nossos dois filhos.
-                            </p>
-                        </div>
-                    </section>
-
-                    <!-- Seção Experiência -->
-                    <section id="experiencia" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Work experience">
-                        <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-black px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                            <h2 class="text-sm font-bold uppercase tracking-widest text-white lg:sr-only">Experiência</h2>
-                        </div>
-                        <div>
-                            <ul class="group/list">
-                                <!-- Experiência 1: Repassa -->
-                                <li class="mb-12">
-                                    <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-white/20"></div>
-                                        <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-gray-500 sm:col-span-2" aria-label="Mai 2024 - Atual">MAI 2024 — ATUAL</header>
-                                        <div class="z-10 sm:col-span-6">
-                                            <h3 class="font-medium leading-snug text-white">
-                                                <div>
-                                                    <a class="inline-flex items-baseline font-medium leading-tight text-white hover:text-white focus-visible:text-white group/link text-base" href="https://www.repassa.com.br/" target="_blank" rel="noreferrer noopener">
-                                                        <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                                                        <span>Product Designer · Repassa</span>
-                                                    </a>
-                                                </div>
-                                            </h3>
-                                            <p class="mt-2 text-sm leading-normal">Atuação em produtos de e-commerce e backoffice, melhorando a jornada do usuário e alinhando design e desenvolvimento. Participei ativamente em discoveries com os PO's e otimizei a jornada de devolução de pedidos, reduzindo os custos logísticos em 54%.</p>
-                                            <ul class="mt-2 flex flex-wrap" aria-label="Skills used">
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">E-commerce</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">UX Research</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Otimização de Processos</div></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- Experiência 2: Contmatic -->
-                                <li class="mb-12">
-                                    <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-white/20"></div>
-                                        <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-gray-500 sm:col-span-2" aria-label="Fev 2023 - Mai 2024">FEV 2023 — MAI 2024</header>
-                                        <div class="z-10 sm:col-span-6">
-                                             <h3 class="font-medium leading-snug text-white">
-                                                <div>
-                                                    <a class="inline-flex items-baseline font-medium leading-tight text-white hover:text-white focus-visible:text-white group/link text-base" href="https://www.contmatic.com.br/" target="_blank" rel="noreferrer noopener">
-                                                        <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                                                        <span>UX/UI Designer · Contmatic</span>
-                                                    </a>
-                                                </div>
-                                            </h3>
-                                            <p class="mt-2 text-sm leading-normal">Conduzi pesquisas exploratórias com clientes para mapear melhorias no sistema contábil. Simplifiquei a gestão de relatórios e otimizei ferramentas contábeis, resultando em um aumento de 74% na satisfação dos usuários, medido pelo Google Analytics.</p>
-                                             <ul class="mt-2 flex flex-wrap" aria-label="Skills used">
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">UX Research</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Análise de Dados</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Sistemas Contábeis</div></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- Experiência 3: MERX -->
-                                <li class="mb-12">
-                                    <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-white/20"></div>
-                                        <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-gray-500 sm:col-span-2" aria-label="Mar 2022 - Fev 2023">MAR 2022 — FEV 2023</header>
-                                        <div class="z-10 sm:col-span-6">
-                                             <h3 class="font-medium leading-snug text-white">
-                                                <div>
-                                                    <a class="inline-flex items-baseline font-medium leading-tight text-white hover:text-white focus-visible:text-white group/link text-base" href="https://www.agroplanning.com.br/2025/07/18/merx-acelera-para-se-tornar-o-primeiro-banco-agro-nativo-digital-do-brasil/" target="_blank" rel="noreferrer noopener">
-                                                        <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                                                        <span>Product Designer · MERX</span>
-                                                    </a>
-                                                </div>
-                                            </h3>
-                                            <p class="mt-2 text-sm leading-normal">Desenvolvi o Design System Agri e criei ferramentas para commodities e geoprocessamento. Implementei a funcionalidade de monitoramento de CBIOs, resultando em um aumento de 75% nas vendas e na captação de novos clientes.</p>
-                                             <ul class="mt-2 flex flex-wrap" aria-label="Skills used">
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Design System</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Geoprocessamento</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Commodities</div></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- Experiência 4: Alldesk -->
-                                <li class="mb-12">
-                                    <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-white/20"></div>
-                                        <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-gray-500 sm:col-span-2" aria-label="Abr 2020 - Mar 2022">ABR 2020 — MAR 2022</header>
-                                        <div class="z-10 sm:col-span-6">
-                                             <h3 class="font-medium leading-snug text-white">
-                                                <div>
-                                                    <a class="inline-flex items-baseline font-medium leading-tight text-white hover:text-white focus-visible:text-white group/link text-base" href="https://meirelesefreitas.com.br/" target="_blank" rel="noreferrer noopener">
-                                                        <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                                                        <span>Product Designer · Alldesk</span>
-                                                    </a>
-                                                </div>
-                                            </h3>
-                                            <p class="mt-2 text-sm leading-normal">Reduzi o tempo médio de monitoria em 40% e aumentei a taxa de qualidade de atendimento em 90%, impactando diretamente o desempenho da empresa. Apresentei o produto a investidores, garantindo destaque em programas de investimento.</p>
-                                             <ul class="mt-2 flex flex-wrap" aria-label="Skills used">
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Métricas de Produto</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Qualidade de Atendimento</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Pitch para Investidores</div></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </section>
-
-                    <!-- Seção Projetos -->
-                    <section id="projetos" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Selected projects">
-                        <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-black px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                            <h2 class="text-sm font-bold uppercase tracking-widest text-white lg:sr-only">Projetos</h2>
-                        </div>
-                        <div>
-                            <ul class="group/list">
-                                <!-- Projeto 1 -->
-                                <li class="mb-12">
-                                    <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-white/20"></div>
-                                        <div class="z-10 sm:order-2 sm:col-span-6">
-                                            <h3>
-                                                <a class="inline-flex items-baseline font-medium leading-tight text-white hover:text-white focus-visible:text-white group/link text-base" href="#" onclick="showProjectDetail(event, 'projeto-repassa')">
-                                                    <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                                                    <span>
-                                                        Repassa: E-commerce de moda sustentável
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
-                                                    </span>
-                                                </a>
-                                            </h3>
-                                            <p class="mt-2 text-sm leading-normal">
-                                                Redesenhei a jornada de compra e venda da Repassa, o maior brechó online do Brasil. O projeto focou em otimizar a usabilidade, aumentar a conversão e criar uma experiência mais engajadora para os usuários, fortalecendo o conceito de economia circular.
-                                            </p>
-                                            <ul class="mt-2 flex flex-wrap" aria-label="Technologies used">
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">E-commerce</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">UX Strategy</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">UI Design</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Moda Sustentável</div></li>
-                                            </ul>
-                                        </div>
-                                        <img alt="Interface da plataforma Repassa" loading="lazy" width="200" height="48" decoding="async" data-nimg="1" class="rounded border-2 border-gray-800 transition group-hover:border-gray-600 sm:order-1 sm:col-span-2 sm:translate-y-1" style="color:transparent" src="./media/Repassa.png">
-                                    </div>
-                                </li>
-                                 <!-- Projeto 2 -->
-                                <li class="mb-12">
-                                    <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-white/20"></div>
-                                        <div class="z-10 sm:order-2 sm:col-span-6">
-                                            <h3>
-                                                <a class="inline-flex items-baseline font-medium leading-tight text-white hover:text-white focus-visible:text-white group/link text-base" href="#" onclick="showProjectDetail(event, 'projeto-impastudio')">
-                                                    <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                                                    <span>
-                                                        Impastudio: Design, Marketing e Desenvolvimento
-                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
-                                                    </span>
-                                                </a>
-                                            </h3>
-                                            <p class="mt-2 text-sm leading-normal">
-                                               Como co-fundador da Impastudio, atuei em múltiplos projetos para pequenas e médias empresas, oferecendo soluções integradas de design de marca, marketing digital e desenvolvimento de sites. Ajudei negócios locais a fortalecerem sua presença online e alcançarem novos clientes.
-                                            </p>
-                                            <ul class="mt-2 flex flex-wrap" aria-label="Technologies used">
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Branding</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Marketing Digital</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Desenvolvimento Web</div></li>
-                                            </ul>
-                                        </div>
-                                        <img alt="Identidade visual criada para um cliente da Impastudio" loading="lazy" width="200" height="48" decoding="async" data-nimg="1" class="rounded border-2 border-gray-800 transition group-hover:border-gray-600 sm:order-1 sm:col-span-2 sm:translate-y-1" style="color:transparent" src="./media/Impa.png">
-                                    </div>
-                                </li>
-                                 <!-- Projeto 3 -->
-                                <li class="mb-12">
-                                    <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-white/20"></div>
-                                        <div class="z-10 sm:order-2 sm:col-span-6">
-                                            <h3>
-                                                <a class="inline-flex items-baseline font-medium leading-tight text-white hover:text-white focus-visible:text-white group/link text-base" href="#" onclick="showProjectDetail(event, 'projeto-merx')">
-                                                    <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                                                    <span>
-                                                        Merx: Ferramentas de Precisão para o Agronegócio
-                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
-                                                    </span>
-                                                </a>
-                                            </h3>
-                                            <p class="mt-2 text-sm leading-normal">
-                                                Desenvolvi interfaces complexas para uma plataforma agritech B2B, incluindo ferramentas de geoprocessamento, monitoramento de créditos de carbono (CBIOs) e relatórios avançados, focando em usabilidade e precisão de dados.
-                                            </p>
-                                            <ul class="mt-2 flex flex-wrap" aria-label="Technologies used">
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Agritech</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">B2B</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Geoprocessamento</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Design de Dados</div></li>
-                                            </ul>
-                                        </div>
-                                        <img alt="Interface de um chatbot para turistas" loading="lazy" width="200" height="48" decoding="async" data-nimg="1" class="rounded border-2 border-gray-800 transition group-hover:border-gray-600 sm:order-1 sm:col-span-2 sm:translate-y-1" style="color:transparent" src="./media/Merx.png">
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </section>
-
-                    <!-- Seção Blog -->
-                    <section id="blog" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Blog posts">
-                        <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-black px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                            <h2 class="text-sm font-bold uppercase tracking-widest text-white lg:sr-only">Blog</h2>
-                        </div>
-                        <div>
-                            <ul class="group/list">
-                                <!-- Post 1 -->
-                                <li class="mb-12">
-                                    <div class="group relative grid grid-cols-8 gap-4 transition-all sm:items-center sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-white/20"></div>
-                                        <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-gray-500 sm:col-span-2" aria-label="15 de Agosto, 2024">AGO 15, 2024</header>
-                                        <div class="z-10 sm:col-span-6">
-                                            <h3 class="font-medium leading-snug text-white">
-                                                <a class="inline-flex items-baseline font-medium leading-tight text-white hover:text-white focus-visible:text-white group/link text-base" href="#" target="_blank" rel="noreferrer noopener">
-                                                    <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                                                    <span>
-                                                        Acessibilidade na Prática: 5 Dicas para um Design Inclusivo
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
-                                                    </span>
-                                                </a>
-                                            </h3>
-                                            <p class="mt-2 text-sm leading-normal">
-                                                Explorando como pequenas mudanças no processo de design podem criar um impacto gigante na vida de usuários com diferentes necessidades. Abordamos desde contraste de cores até navegação por teclado.
-                                            </p>
-                                            <ul class="mt-2 flex flex-wrap" aria-label="Tags">
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Acessibilidade</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">WCAG</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">UX Design</div></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- Post 2 -->
-                                <li class="mb-12">
-                                     <div class="group relative grid grid-cols-8 gap-4 transition-all sm:items-center sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-white/20"></div>
-                                        <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-gray-500 sm:col-span-2" aria-label="22 de Julho, 2024">JUL 22, 2024</header>
-                                        <div class="z-10 sm:col-span-6">
-                                            <h3 class="font-medium leading-snug text-white">
-                                                <a class="inline-flex items-baseline font-medium leading-tight text-white hover:text-white focus-visible:text-white group/link text-base" href="#" target="_blank" rel="noreferrer noopener">
-                                                    <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                                                    <span>
-                                                        Design Systems: Mais do que uma Biblioteca de Componentes
-                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
-                                                    </span>
-                                                </a>
-                                            </h3>
-                                            <p class="mt-2 text-sm leading-normal">
-                                                Um mergulho profundo em como um Design System bem estruturado pode acelerar o desenvolvimento, garantir consistência visual e fortalecer a colaboração entre equipes de design e engenharia.
-                                            </p>
-                                             <ul class="mt-2 flex flex-wrap" aria-label="Tags">
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">Design System</div></li>
-                                                <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full border border-white/30 px-3 py-1 text-xs font-medium leading-5 text-white">UI Engineering</div></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </section>
-
-                    <footer class="max-w-md pb-16 text-sm text-gray-500 sm:pb-0">
-                        <p>
-                           Feito à mão por mim. Construído com HTML, Tailwind CSS e uma xícara de café.
-                        </p>
-                    </footer>
+                <div class="border-t border-slate-100 my-2"></div>
+                
+                <div class="px-4 py-2 text-[10px] font-mono text-slate-400 uppercase tracking-widest">Ações</div>
+                <div class="cmdk-item px-4 py-3 flex items-center justify-between text-slate-600" onclick="copyEmail()">
+                    <span class="flex items-center gap-3"><i class="ph-fill ph-copy"></i> Copiar Email</span>
                 </div>
-
-                <!-- Conteúdo do Detalhe do Projeto (inicialmente escondido) -->
-                <div id="project-detail-content" class="hidden">
-                     <section id="projeto-repassa" class="project-page hidden">
-                        <div class="mb-8">
-                           <a href="#" onclick="hideProjectDetail(event)" class="group mb-2 inline-flex items-center font-semibold leading-tight text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mr-1 h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-2" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"></path></svg>
-                                Voltar
-                            </a>
-                        </div>
-                        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">Repassa: E-commerce de moda sustentável</h1>
-                        <p class="mt-3 text-lg leading-relaxed">Redesenhando a experiência de finalização de compra para impulsionar as vendas e a satisfação do usuário no maior brechó online do Brasil.</p>
-                        
-                        <div class="mt-6">
-                            <a class="group inline-flex items-center font-semibold leading-tight text-white" href="https://www.repassa.com.br/" target="_blank" rel="noopener noreferrer" aria-label="Visitar o site da Repassa (abre em uma nova aba)">
-                                <span>
-                                    <span class="border-b border-transparent pb-px transition group-hover:border-white motion-reduce:transition-none">Visitar Site </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-focus-visible:-translate-y-1 group-focus-visible:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
-                                </span>
-                            </a>
-                        </div>
-
-                        <img src="https://placehold.co/800x450/1a1a1a/ffffff?text=Capa+do+Projeto+Repassa" alt="Imagem de capa do projeto Repassa" class="my-8 rounded-lg border-2 border-gray-800">
-
-                        <div class="space-y-12">
-                            <div>
-                                <h2 class="text-2xl font-bold tracking-tight text-white">O Desafio: Um Funil de Vendas com Vazamentos</h2>
-                                <p class="mt-4">O checkout da Repassa, embora funcional, apresentava pontos de atrito que resultavam em uma taxa de abandono de carrinho acima da média do setor. O objetivo era claro: redesenhar o fluxo de finalização de compra para torná-lo mais rápido, intuitivo e confiável, a fim de aumentar a conversão de vendas e otimizar o funil como um todo.</p>
-                            </div>
-                            
-                            <div>
-                                <h2 class="text-2xl font-bold tracking-tight text-white">Minha Jornada: Do Problema à Solução</h2>
-                                <p class="mt-4">Assumi a liderança deste projeto com a missão de transformar o checkout em um ponto forte da experiência Repassa. Minha atuação cobriu todo o ciclo de vida do design, desde a imersão profunda nos dados até a entrega final para o time de desenvolvimento.</p>
-                                
-                                <div class="mt-8 space-y-8">
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-white">1. Discovery: Ouvindo os Dados</h3>
-                                        <p class="mt-2">Minha jornada começou com um mergulho profundo nos dados. Utilizando ferramentas como <strong class="text-gray-300">Google Analytics</strong> e <strong class="text-gray-300">Clarity</strong>, identifiquei os principais gargalos no funil de compra e os pontos onde os usuários mais abandonavam o processo. Análises de <strong class="text-gray-300">NPS</strong> também forneceram insights qualitativos valiosos sobre a frustração dos clientes. Com esse mapa de problemas em mãos, parti para a fase de benchmarking, analisando as melhores práticas de checkout em e-commerces de destaque para inspirar nossa solução.</p>
-                                         <img src="https://placehold.co/800x400/1a1a1a/ffffff?text=Gráficos+de+Análise+de+Dados" alt="Gráficos e dados da fase de discovery" class="mt-4 rounded-lg border-2 border-gray-800">
-                                    </div>
-
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-white">2. Ideação e Design: Do Rascunho à Interface</h3>
-                                        <p class="mt-2">Com os problemas e oportunidades mapeados, iniciei o processo de ideação com <strong class="text-gray-300">low-frames</strong> para explorar diferentes abordagens estruturais. Adotando uma estratégia <strong class="text-gray-300">mobile-first</strong>, concentrei-me em criar uma experiência limpa e direta para a tela menor, garantindo que a simplicidade se mantivesse ao escalar para o desktop. Cada etapa do fluxo — do carrinho ao pagamento — foi cuidadosamente desenhada no Figma, priorizando a clareza e a redução do esforço cognitivo do usuário.</p>
-                                    </div>
-                                    
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-white">3. Prototipagem e Validação: Testando com Pessoas Reais</h3>
-                                        <p class="mt-2">O design ganhou vida através de um protótipo de alta fidelidade 100% interativo, criado no <strong class="text-gray-300">Figma</strong>. Para validar a eficácia da nova solução, conduzi testes de usabilidade com um grupo diversificado de <strong class="text-gray-300">8 colaboradores da Repassa e da Renner</strong>. Os resultados foram excepcionais: alcançamos um <strong class="text-gray-300">score SUS (System Usability Scale) de 97</strong>, o que nos coloca no <strong class="text-gray-300">percentil 99</strong> em termos de usabilidade. Esse feedback extremamente positivo nos deu a confiança necessária para seguir em frente.</p>
-                                         <img src="https://placehold.co/800x450/1a1a1a/ffffff?text=Protótipo+Interativo+no+Figma" alt="Protótipo do novo checkout no Figma" class="mt-4 rounded-lg border-2 border-gray-800">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <h2 class="text-2xl font-bold tracking-tight text-white">Handoff e Próximos Passos</h2>
-                                <p class="mt-4">Com o design validado, preparei um handoff detalhado para a equipe de desenvolvimento, garantindo que todas as especificações, componentes e fluxos estivessem claros para uma implementação precisa. Para medir o sucesso pós-lançamento, definimos o acompanhamento contínuo do nosso funil de compra como principal KPI e implementamos um formulário de avaliação para coletar feedback direto dos usuários sobre o novo fluxo, garantindo um ciclo de melhoria contínua.</p>
-                            </div>
-                        </div>
-                     </section>
-                     <section id="projeto-impastudio" class="project-page hidden">
-                        <div class="mb-8">
-                           <a href="#" onclick="hideProjectDetail(event)" class="group mb-2 inline-flex items-center font-semibold leading-tight text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mr-1 h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-2" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"></path></svg>
-                                Voltar
-                            </a>
-                        </div>
-                        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">Impastudio: Criando Impacto na Tríplice Fronteira</h1>
-                        <p class="mt-3 text-lg leading-relaxed">Capacitando empreendedores locais com design, marketing e desenvolvimento sob medida.</p>
-                        
-                        <div class="mt-6">
-                            <a class="group inline-flex items-center font-semibold leading-tight text-white" href="#" target="_blank" rel="noopener noreferrer" aria-label="Visitar o site da Impastudio (abre em uma nova aba)">
-                                <span>
-                                    <span class="border-b border-transparent pb-px transition group-hover:border-white motion-reduce:transition-none">Visitar Site </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-focus-visible:-translate-y-1 group-focus-visible:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
-                                </span>
-                            </a>
-                        </div>
-
-                        <img src="https://placehold.co/800x450/1a1a1a/ffffff?text=Branding+Impastudio" alt="Identidade visual da Impastudio" class="my-8 rounded-lg border-2 border-gray-800">
-
-                        <div class="space-y-12">
-                            <div>
-                                <h2 class="text-2xl font-bold tracking-tight text-white">O Desafio: Navegando em um Mercado Multicultural</h2>
-                                <p class="mt-4">Na vibrante Tríplice Fronteira entre Brasil, Paraguai e Argentina, empreendedores locais enfrentam um desafio único: como criar uma marca e uma presença digital que dialogue com públicos de diferentes culturas e nacionalidades? A necessidade era por uma solução integrada que não apenas fornecesse um design bonito, mas que gerasse <strong class="text-gray-300">impacto real</strong> nos negócios.</p>
-                            </div>
-                            
-                            <div>
-                                <h2 class="text-2xl font-bold tracking-tight text-white">A Solução: Nasce o Impastudio</h2>
-                                <p class="mt-4">Foi a partir dessa necessidade que co-fundei o Impastudio. O nome já diz tudo: <strong class="text-gray-300">"Impa"</strong> de impacto e <strong class="text-gray-300">"Studio"</strong> porque nos propusemos a ser um ateliê completo para todas as necessidades digitais de um empreendedor. Nossa filosofia de branding foi ousada: unir elementos das bandeiras do Brasil e do Paraguai para criar uma identidade visual que representasse essa fusão cultural, mostrando que entendíamos a essência da nossa região.</p>
-                                
-                                <div class="mt-8 space-y-8">
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-white">Minha Atuação como Co-fundador e Designer</h3>
-                                        <p class="mt-2">Como força criativa do estúdio, minha função era multifacetada. Eu era responsável por traduzir a visão dos nossos clientes em realidade, desde a concepção do <strong class="text-gray-300">branding</strong> até o desenvolvimento de <strong class="text-gray-300">websites funcionais</strong> e a criação de <strong class="text-gray-300">campanhas de marketing digital</strong> que gerassem resultados. Atuei como um parceiro estratégico, ajudando cada empreendedor a construir uma base sólida para o sucesso no ambiente digital.</p>
-                                    </div>
-                                    
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-white">Resultados e Impacto Local</h3>
-                                        <p class="mt-2">Ao longo da jornada do Impastudio, capacitamos dezenas de negócios locais a não apenas sobreviver, mas prosperar no cenário digital. Nossos projetos resultaram em aumentos significativos de visibilidade, engajamento e, o mais importante, vendas. Mais do que entregar websites e logotipos, entregamos confiança e crescimento para a comunidade empreendedora da Tríplice Fronteira, provando que o design estratégico é uma ferramenta poderosa para gerar impacto real.</p>
-                                         <img src="https://placehold.co/800x450/1a1a1a/ffffff?text=Website+de+Cliente" alt="Exemplo de website desenvolvido para um cliente" class="mt-4 rounded-lg border-2 border-gray-800">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                     </section>
-                     <section id="projeto-merx" class="project-page hidden">
-                        <div class="mb-8">
-                           <a href="#" onclick="hideProjectDetail(event)" class="group mb-2 inline-flex items-center font-semibold leading-tight text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mr-1 h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-2" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"></path></svg>
-                                Voltar
-                            </a>
-                        </div>
-                        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">Merx: Desenhando o Futuro do Agronegócio com Dados</h1>
-                        <p class="mt-3 text-lg leading-relaxed">A criação de interfaces B2B para geoprocessamento, monitoramento de CBIOs e relatórios complexos.</p>
-                        
-                        <div class="mt-6">
-                            <a class="group inline-flex items-center font-semibold leading-tight text-white" href="https://merx.ag/" target="_blank" rel="noopener noreferrer" aria-label="Visitar o site da Merx (abre em uma nova aba)">
-                                <span>
-                                    <span class="border-b border-transparent pb-px transition group-hover:border-white motion-reduce:transition-none">Visitar Site </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-focus-visible:-translate-y-1 group-focus-visible:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
-                                </span>
-                            </a>
-                        </div>
-
-                        <img src="https://placehold.co/800x450/1a1a1a/ffffff?text=Dashboard+Agritech" alt="Dashboard da plataforma Merx" class="my-8 rounded-lg border-2 border-gray-800">
-
-                        <div class="space-y-12">
-                            <div>
-                                <h2 class="text-2xl font-bold tracking-tight text-white">O Desafio: Traduzindo a Complexidade do Campo em Simplicidade Digital</h2>
-                                <p class="mt-4">O setor do agronegócio B2B lida com uma quantidade massiva de dados heterogêneos: imagens de satélite, cotações de commodities, regulamentações de créditos de carbono, entre outros. O desafio era criar uma plataforma digital que não apenas centralizasse essas informações, mas as tornasse acionáveis. Como transformar mapas de calor de geoprocessamento e a volatilidade dos CBIOs em interfaces intuitivas que capacitassem os usuários a tomar decisões estratégicas?</p>
-                            </div>
-                            
-                            <div>
-                                <h2 class="text-2xl font-bold tracking-tight text-white">Minha Atuação: Arquitetando a Experiência de Dados</h2>
-                                <p class="mt-4">Como Product Designer na Merx, fui responsável por projetar as interfaces de três pilares da plataforma. Meu trabalho começou com a criação do <strong class="text-gray-300">Design System Agri</strong>, uma biblioteca de componentes que garantiu consistência e agilidade no desenvolvimento. A partir dessa base, mergulhei no desenho de cada uma das ferramentas.</p>
-                                
-                                <div class="mt-8 space-y-8">
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-white">1. Geoprocessamento Inteligente e Acessível</h3>
-                                        <p class="mt-2">Projetei uma interface baseada em mapas que permitia aos usuários visualizar e sobrepor camadas de dados complexos — desde a saúde da lavoura até o histórico de produtividade. O foco foi criar uma experiência interativa e fluida, onde a análise de grandes áreas geográficas se tornasse uma tarefa simples e visualmente rica.</p>
-                                         <img src="https://placehold.co/800x400/1a1a1a/ffffff?text=Interface+de+Geoprocessamento" alt="Interface de mapa com camadas de dados de geoprocessamento" class="mt-4 rounded-lg border-2 border-gray-800">
-                                    </div>
-
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-white">2. Monitoramento de CBIOs (Créditos de Carbono)</h3>
-                                        <p class="mt-2">Para desmistificar o mercado de créditos de carbono, desenhei um dashboard que traduzia a complexidade financeira e ambiental dos CBIOs em visualizações claras. A interface permitia o acompanhamento em tempo real da geração, certificação e negociação dos créditos, fornecendo segurança e transparência para os investidores.</p>
-                                         <img src="https://placehold.co/800x400/1a1a1a/ffffff?text=Dashboard+de+Monitoramento+de+CBIOs" alt="Dashboard com gráficos e métricas de CBIOs" class="mt-4 rounded-lg border-2 border-gray-800">
-                                    </div>
-                                    
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-white">3. Relatórios para Decisões Estratégicas</h3>
-                                        <p class="mt-2">Criei um módulo de relatórios flexível, onde os usuários podiam construir seus próprios dashboards e exportar análises customizadas. A interface drag-and-drop e a vasta biblioteca de widgets permitiram que cada cliente adaptasse a visualização de dados às suas necessidades específicas, transformando informação bruta em inteligência de negócio.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <h2 class="text-2xl font-bold tracking-tight text-white">Resultados: Impacto Direto no Negócio</h2>
-                                <p class="mt-4">O design centrado no usuário das novas ferramentas foi crucial para o sucesso da plataforma. A funcionalidade de monitoramento de CBIOs, em particular, foi um divisor de águas, resultando em um <strong class="text-gray-300">aumento de 75% nas vendas</strong> e na captação de uma nova e estratégica carteira de clientes. O projeto provou que um bom design não apenas simplifica tarefas complexas, mas também gera um valor comercial mensurável.</p>
-                            </div>
-                        </div>
-                     </section>
-                </div>
-            </main>
+            </div>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('#main-content section[id]');
-            const navLinks = document.querySelectorAll('nav a');
-            
-            if (sections.length > 0 && navLinks.length > 0) {
-                 const observer = new IntersectionObserver(entries => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            navLinks.forEach(link => link.classList.remove('active'));
-                            
-                            const activeLink = document.querySelector(`nav a[href="#${entry.target.id}"]`);
-                            if (activeLink) {
-                                activeLink.classList.add('active');
-                            }
-                        }
-                    });
-                }, {
-                    rootMargin: "-30% 0px -70% 0px"
-                });
-        
-                sections.forEach(section => {
-                    observer.observe(section);
-                });
-            }
 
+    <!-- Navegação Flutuante -->
+    <div id="navbar-wrapper" class="fixed top-6 left-0 right-0 flex justify-center z-50 pointer-events-none no-print">
+        <nav class="bg-white/80 backdrop-blur-xl border border-white/40 ring-1 ring-slate-900/5 shadow-xl rounded-full px-2 py-2 pointer-events-auto flex items-center gap-1 transition-all">
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-900 text-white font-bold font-mono text-sm hover:scale-105 transition-transform shadow-md">CF</a>
+            <div class="h-6 w-px bg-slate-200 mx-2"></div>
+            <div class="hidden sm:flex items-center gap-1">
+                <a href="#manifesto" class="nav-link px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100/50 rounded-full transition-all">Manifesto</a>
+                <a href="#cases" class="nav-link px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100/50 rounded-full transition-all">Cases</a>
+                <a href="#lideranca" class="nav-link px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100/50 rounded-full transition-all">Liderança</a>
+            </div>
+            
+            <button onclick="toggleCmdK()" class="hidden md:flex items-center gap-2 px-3 py-2 text-xs font-mono text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition-colors ml-1 border border-transparent hover:border-slate-200" title="Menu de Comandos"><i class="ph-bold ph-command"></i>K</button>
+            <div class="h-6 w-px bg-slate-200 mx-1 hidden sm:block"></div>
+            
+            <!-- Botão Personal Hub com Ícone Smiley (Pessoal) -->
+            <button onclick="togglePersonalPanel()" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 text-purple-600 hover:bg-purple-50 transition-colors pointer-events-auto animate-brain relative" title="Sobre mim (Pessoal)">
+                <i class="ph-bold ph-smiley text-lg relative z-10"></i>
+            </button>
+
+            <a href="https://wa.me/554591249512" target="_blank" class="hidden sm:flex px-5 py-2 text-sm font-medium bg-slate-100 text-slate-900 border border-slate-200 rounded-full hover:bg-slate-200 transition-all items-center gap-2 group ml-1"><span>Contato</span><i class="ph-bold ph-whatsapp-logo group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i></a>
+        </nav>
+    </div>
+
+    <!-- PAINEL LATERAL (SOBRE MIM) -->
+    <div id="personal-overlay" class="fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-[60] opacity-0 invisible transition-all duration-300 cursor-pointer"></div>
+    <aside id="personal-panel" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-[70] transform translate-x-full overflow-y-auto border-l border-slate-100">
+        <div class="p-8">
+            <div class="flex items-center justify-between mb-10">
+                <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                    <i class="ph-duotone ph-smiley text-purple-600 text-2xl"></i> Quem sou eu
+                </h2>
+                <button id="close-personal-panel" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 text-slate-500 transition-colors"><i class="ph-bold ph-x"></i></button>
+            </div>
+
+            <div class="space-y-12">
+                
+                <!-- Intro Pessoal -->
+                <div class="space-y-4">
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Além do Figma e do código, sou um entusiasta de tecnologia e solucionador de problemas. Acredito que o design deve facilitar a vida das pessoas, não complicá-la.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs font-medium rounded-full border border-purple-100">Curioso</span>
+                        <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-medium rounded-full border border-blue-100">Analítico</span>
+                        <span class="px-3 py-1 bg-orange-50 text-orange-700 text-xs font-medium rounded-full border border-orange-100">Colaborativo</span>
+                    </div>
+                </div>
+
+                <!-- O que me move (Interesses) -->
+                <div>
+                    <h3 class="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest mb-4 border-b border-slate-100 pb-2">O que me move</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="p-3 bg-slate-50 rounded-xl flex items-center gap-3 hover:bg-slate-100 transition-colors">
+                            <i class="ph-fill ph-coffee text-amber-700 text-xl"></i>
+                            <span class="text-sm text-slate-700 font-medium">Café</span>
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl flex items-center gap-3 hover:bg-slate-100 transition-colors">
+                            <i class="ph-fill ph-game-controller text-indigo-600 text-xl"></i>
+                            <span class="text-sm text-slate-700 font-medium">Games</span>
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl flex items-center gap-3 hover:bg-slate-100 transition-colors">
+                            <i class="ph-fill ph-airplane-tilt text-sky-500 text-xl"></i>
+                            <span class="text-sm text-slate-700 font-medium">Viagens</span>
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl flex items-center gap-3 hover:bg-slate-100 transition-colors">
+                            <i class="ph-fill ph-camera text-slate-600 text-xl"></i>
+                            <span class="text-sm text-slate-700 font-medium">Foto</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- No Fone (Música/Podcast) -->
+                <div>
+                    <h3 class="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest mb-4 border-b border-slate-100 pb-2">No Fone</h3>
+                    <div class="flex items-center gap-4 bg-white border border-slate-200 p-3 rounded-xl shadow-sm">
+                        <div class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center text-white">
+                            <i class="ph-fill ph-headphones text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 font-mono uppercase mb-0.5">Ouvindo agora</p>
+                            <p class="text-sm font-bold text-slate-900">Lo-fi para Focar</p>
+                        </div>
+                        <div class="ml-auto">
+                            <div class="flex gap-0.5 items-end h-4">
+                                <div class="w-0.5 bg-emerald-500 h-2 animate-pulse"></div>
+                                <div class="w-0.5 bg-emerald-500 h-4 animate-pulse delay-75"></div>
+                                <div class="w-0.5 bg-emerald-500 h-3 animate-pulse delay-150"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Galeria Pessoal (Placeholders) 
+                <div>
+                    <h3 class="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest mb-4 border-b border-slate-100 pb-2">Life snippets</h3>
+                    <div class="grid grid-cols-3 gap-2">
+                        <div class="aspect-square bg-slate-200 rounded-lg flex items-center justify-center text-slate-400 hover:bg-slate-300 transition-colors cursor-default" title="Workspace">
+                            <i class="ph-fill ph-desktop"></i>
+                        </div>
+                        <div class="aspect-square bg-slate-200 rounded-lg flex items-center justify-center text-slate-400 hover:bg-slate-300 transition-colors cursor-default" title="Natureza">
+                            <i class="ph-fill ph-tree"></i>
+                        </div>
+                        <div class="aspect-square bg-slate-200 rounded-lg flex items-center justify-center text-slate-400 hover:bg-slate-300 transition-colors cursor-default" title="Lazer">
+                            <i class="ph-fill ph-bicycle"></i>
+                        </div>
+                    </div>
+                </div>-->
+
+            </div>
+            
+            <div class="mt-12 pt-6 border-t border-slate-100 text-center">
+                <p class="text-xs text-slate-400 italic">"Design é sobre pessoas."</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Hero Section -->
+    <main class="pt-40 pb-20 px-6 max-w-5xl mx-auto">
+        <header class="mb-32">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                <div class="md:col-span-8 bg-white/50 backdrop-blur-sm border border-slate-200 p-8 rounded-3xl shadow-sm flex flex-col justify-between min-h-[320px] animate-hero" style="animation-delay: 0ms;">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-mono font-medium border border-emerald-100 mb-6 w-fit animate-hero" style="animation-delay: 100ms;">
+                            <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span></span>Open to work
+                        </div>
+                        <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-6 animate-hero" style="animation-delay: 200ms;">Design estratégico para <br>inovação e performance.</h1>
+                        <p class="text-slate-600 text-lg max-w-lg leading-relaxed animate-hero" style="animation-delay: 300ms;">Sou <strong class="text-slate-900 font-semibold">Cleidson Franklin</strong>. Transformo complexidade em sistemas escaláveis. Especialista em B2B, Design Systems e AI Ops.</p>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-100 flex gap-6 animate-hero" style="animation-delay: 400ms;">
+                        <a href="media/CV_CLEIDSON_PD.pdf" target="_blank" class="text-sm font-medium text-slate-600 hover:text-slate-900 flex items-center gap-2 group transition-colors"><i class="ph ph-file-pdf text-lg group-hover:-translate-y-0.5 transition-transform text-red-500"></i> Baixar CV</a>
+                        <a href="https://www.linkedin.com/in/cleidson-productdesigner/" target="_blank" class="text-sm font-medium text-slate-600 hover:text-slate-900 flex items-center gap-2 group transition-colors"><i class="ph ph-linkedin-logo text-lg group-hover:-translate-y-0.5 transition-transform text-blue-600"></i> LinkedIn</a>
+                        <a href="https://github.com/cleidsonux" target="_blank" class="text-sm font-medium text-slate-600 hover:text-slate-900 flex items-center gap-2 group transition-colors"><i class="ph ph-github-logo text-lg group-hover:-translate-y-0.5 transition-transform text-slate-900"></i> GitHub</a>
+                    </div>
+                </div>
+                <div class="md:col-span-4 bg-slate-100 border border-slate-200 rounded-3xl overflow-hidden relative group min-h-[320px] animate-hero" style="animation-delay: 500ms;">
+                    <img src="media/profile.jpg" alt="Cleidson Franklin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+            </div>
+        </header>
+
+        <!-- Manifesto -->
+        <section id="manifesto" class="mb-32 reveal">
+            <div class="grid sm:grid-cols-2 gap-6">
+                <div class="spotlight-card p-8 rounded-3xl bg-white border border-slate-100 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 group hover:-translate-y-1">
+                    <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-5"><i class="ph-bold ph-chart-bar text-xl"></i></div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">Estratégia & Dados</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Design além da estética. Lidero fluxos baseados em métricas reais para garantir ROI.</p>
+                </div>
+                <div class="spotlight-card p-8 rounded-3xl bg-white border border-slate-100 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 group hover:-translate-y-1">
+                    <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-5"><i class="ph-bold ph-lightning text-xl"></i></div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">Validação Rápida</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Fake Door e prototipagem ágil para validar hipóteses cedo e economizar engenharia.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cases -->
+        <section id="cases" class="mb-32">
+            <div class="flex items-center justify-between mb-10 reveal">
+                <h2 class="text-2xl font-bold text-slate-900 tracking-tight">Projetos Selecionados</h2>
+                <span class="text-[10px] font-mono font-bold bg-slate-100 text-slate-500 px-3 py-1 rounded-full border border-slate-200">03 CASES</span>
+            </div>
+
+            <div class="space-y-12">
+                
+                <!-- Case 1: Repassa (Dossiê Completo + PROTEÇÃO DE INJEÇÃO JS) -->
+                <article class="group bg-slate-900 bg-noise text-slate-300 rounded-[2rem] p-8 md:p-12 shadow-2xl shadow-slate-900/20 overflow-hidden relative reveal hover:-translate-y-1 transition-transform duration-500 min-h-[600px]">
+    
+                    <div id="project-lock" class="absolute inset-0 z-50 flex flex-col items-center justify-center bg-slate-900/95 backdrop-blur-md transition-all duration-500">
+                        <div class="text-center space-y-6 max-w-sm w-full px-6">
+                            <div class="w-16 h-16 bg-slate-800 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-slate-950/50 border border-slate-700">
+                                <i class="ph-fill ph-lock-key text-3xl text-emerald-500"></i>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Projeto Confidencial</h3>
+                                <p class="text-sm text-slate-400">Este case contém dados sensíveis de negócio. Digite a senha para visualizar.</p>
+                            </div>
+
+                            <div class="relative group">
+                                <input type="password" id="unlock-pass" placeholder="Digite a senha..." 
+                                    class="w-full bg-slate-800 border border-slate-700 text-white text-center rounded-xl px-4 py-3 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all placeholder:text-slate-600 font-mono"
+                                    onkeypress="handleEnter(event)">
+                                <button onclick="unlockProject()" class="absolute right-2 top-2 bottom-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg px-3 transition-colors">
+                                    <i class="ph-bold ph-arrow-right"></i>
+                                </button>
+                            </div>
+                            <p id="error-msg" class="text-xs text-red-400 font-medium opacity-0 transition-opacity">Senha incorreta.</p>
+                        </div>
+                    </div>
+
+                    <!-- CONTAINER VAZIO: O conteúdo HTML será injetado aqui via JS -->
+                    <div id="project-content" class="hidden opacity-0 transition-opacity duration-1000"></div>
+                </article>
+
+                <!-- Case 2: Contmatic (Dossiê Completo) -->
+                <article class="group bg-white border border-slate-200 rounded-[2rem] p-8 md:p-12 hover:border-slate-300 hover:shadow-xl transition-all duration-300 reveal delay-100">
+                    <div class="grid md:grid-cols-12 gap-12">
+                        <div class="md:col-span-4 flex flex-col gap-6">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4"><span class="w-2 h-2 rounded-full bg-blue-500"></span><span class="text-xs font-mono uppercase tracking-widest text-slate-500">2023 • 2024</span></div>
+                                <h3 class="text-3xl font-bold text-slate-900 mb-2">Contmatic Phoenix</h3>
+                                <p class="text-slate-500 text-sm font-medium">Research & Redesign • SaaS B2B</p>
+                            </div>
+                            <div class="bg-blue-50 border border-blue-100 rounded-2xl p-6">
+                                <h4 class="text-[10px] font-bold uppercase tracking-widest text-blue-700 mb-4 opacity-90 flex items-center gap-2"><i class="ph-bold ph-chart-bar"></i> Impacto Real</h4>
+                                <div class="space-y-4">
+                                    <div><div class="flex items-baseline gap-2"><span class="text-4xl font-bold text-slate-900 tracking-tighter">64%</span><span class="text-xs text-slate-400 line-through">NPS Negativo</span></div><p class="text-xs text-slate-500 mt-1">Salto de NPS em 1 ano</p></div>
+                                    <div class="h-px w-full bg-blue-200"></div>
+                                    <div><div class="flex gap-4"><div><span class="block text-lg font-bold text-slate-900">9</span><span class="text-[10px] text-slate-500">Entrevistas</span></div><div><span class="block text-lg font-bold text-slate-900">6</span><span class="text-[10px] text-slate-500">Escritórios</span></div><div><span class="block text-lg font-bold text-slate-900">5</span><span class="text-[10px] text-slate-500">Dores Críticas</span></div></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:col-span-8 space-y-10">
+                            <div><h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2"><i class="ph-fill ph-warning-octagon text-blue-500"></i> Contexto & Desafio</h4><p class="text-slate-600 leading-relaxed">O sistema contábil, amplamente utilizado, enfrentava queixas sobre eficiência operacional. Usuários "power users" rejeitavam versões novas por serem mais lentas que o legado. O objetivo era aumentar a produtividade e satisfação.</p></div>
+                            
+                            <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6 relative overflow-hidden group min-h-[180px] flex items-center justify-center"><div class="wireframe-box absolute inset-0"></div><div class="relative z-10 flex items-center gap-6"><div class="text-center"><div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm mb-2 mx-auto"><i class="ph-duotone ph-microphone text-blue-500 text-xl"></i></div><span class="text-[10px] font-mono text-slate-500 uppercase">Entrevistas</span></div><i class="ph-bold ph-arrow-right text-slate-300"></i><div class="text-center"><div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm mb-2 mx-auto"><i class="ph-duotone ph-text-aa text-purple-500 text-xl"></i></div><span class="text-[10px] font-mono text-slate-500 uppercase">Transcrição</span></div><i class="ph-bold ph-arrow-right text-slate-300"></i><div class="text-center"><div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm mb-2 mx-auto"><i class="ph-duotone ph-sticker text-yellow-500 text-xl"></i></div><span class="text-[10px] font-mono text-slate-500 uppercase">FigJam</span></div></div></div>
+                            <div><h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2"><i class="ph-fill ph-magnifying-glass text-blue-500"></i> Metodologia</h4><p class="text-slate-600 text-sm leading-relaxed mb-3">Conduzi <strong>pesquisa qualitativa com 9 profissionais</strong> de 6 escritórios diferentes. Gravei e transcrevi integralmente as conversas, categorizando insights em clusters no FigJam.</p><p class="text-slate-600 text-sm leading-relaxed">Cruzei esses dados qualitativos com métricas do <strong>Google Analytics</strong> (tempo na tarefa, abandono) para validar a severidade dos problemas encontrados.</p></div>
+                            <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6"><h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Principais Descobertas</h4><ul class="space-y-4 text-sm text-slate-600"><li class="flex gap-3"><i class="ph-bold ph-warning text-orange-400 mt-0.5"></i><div><strong class="text-slate-900 block">Automatização Complexa</strong>Dificuldade em configurar robôs, exigindo guias contextuais.</div></li><li class="flex gap-3"><i class="ph-bold ph-warning text-orange-400 mt-0.5"></i><div><strong class="text-slate-900 block">Interface de Lançamentos</strong>Muitos cliques e inconsistências. Redesenhamos com foco em <strong>redução de carga cognitiva</strong>.</div></li><li class="flex gap-3"><i class="ph-bold ph-warning text-orange-400 mt-0.5"></i><div><strong class="text-slate-900 block">Relatórios Pouco Usáveis</strong>Falta de personalização. Propus pré-visualização e filtros avançados.</div></li></ul></div>
+                            
+                            <!-- Placeholder Contmatic -->
+                            <!-- Placeholder Contmatic SUBSTITUÍDO PELA IMAGEM -->
+                            <div onclick="openLightbox(3)" class="mt-6 aspect-video bg-slate-50 rounded-xl border border-slate-200 overflow-hidden cursor-pointer group relative shadow-sm hover:shadow-md transition-all">
+                                <img src="media/contmatic-pesquisa.png" alt="Pesquisa Contmatic" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors flex items-center justify-center">
+                                     <span class="opacity-0 group-hover:opacity-100 bg-white text-slate-900 px-3 py-1 rounded-full text-xs font-bold shadow-sm transform translate-y-2 group-hover:translate-y-0 transition-all">Ver em tela cheia</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Case 3: MerX / Produtos Sipal (Dossiê Completo) -->
+                <article class="group bg-white border border-slate-200 rounded-[2rem] p-8 md:p-12 hover:border-slate-300 hover:shadow-xl transition-all duration-300 reveal delay-200">
+                    <div class="grid md:grid-cols-12 gap-12">
+                        <div class="md:col-span-4 flex flex-col gap-6">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4"><span class="w-2 h-2 rounded-full bg-purple-500"></span><span class="text-xs font-mono uppercase tracking-widest text-slate-500">2022 • 2023</span></div>
+                                <h3 class="text-3xl font-bold text-slate-900 mb-2">MerX / Sipal</h3>
+                                <p class="text-slate-500 text-sm font-medium">Fintech • Commodities • Design System</p>
+                            </div>
+                            <div class="bg-purple-50 border border-purple-100 rounded-2xl p-6">
+                                <h4 class="text-[10px] font-bold uppercase tracking-widest text-purple-700 mb-4 opacity-90 flex items-center gap-2"><i class="ph-bold ph-chart-bar"></i> Performance</h4>
+                                <div class="space-y-4">
+                                    <div><div class="flex items-baseline gap-2"><span class="text-4xl font-bold text-slate-900 tracking-tighter">-30%</span></div><p class="text-xs text-slate-500 mt-1">Tempo de Aprovação</p></div>
+                                    <div class="h-px w-full bg-purple-200"></div>
+                                    <div><div class="flex items-baseline gap-2"><span class="text-2xl font-bold text-slate-900 tracking-tighter">+20%</span></div><p class="text-xs text-slate-500 mt-1">Competitividade de Preços</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:col-span-8 space-y-10">
+                            <div><h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2"><i class="ph-fill ph-plant text-purple-500"></i> O Desafio Sipal</h4><p class="text-slate-600 leading-relaxed">Traders de commodities precisavam aprovar preços ofertados por produtores com agilidade. O sistema antigo carecia de visibilidade, dificultando decisões rápidas em um mercado volátil.</p></div>
+                            
+                            <!-- Visual Placeholder: Atomic Design -->
+                            <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6 relative overflow-hidden group min-h-[180px] flex items-center justify-center">
+                                <div class="wireframe-box absolute inset-0"></div>
+                                <div class="relative z-10 flex flex-col items-center gap-3">
+                                    <div class="flex gap-4">
+                                        <div class="w-8 h-8 rounded bg-purple-500"></div><div class="w-8 h-8 rounded bg-slate-300"></div><div class="w-8 h-8 rounded bg-white border border-slate-200"></div>
+                                    </div>
+                                    <span class="text-[10px] font-mono text-slate-500 uppercase bg-white px-2 py-1 rounded shadow-sm">Atomic Design System</span>
+                                </div>
+                            </div>
+
+                            <div><h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2"><i class="ph-fill ph-puzzle-piece text-purple-500"></i> Solução & Design System</h4><p class="text-slate-600 text-sm leading-relaxed mb-3">Construí um <strong>Design System baseado em Material Design</strong>, priorizando escalabilidade. Criei componentes atômicos como tabelas dinâmicas e filtros avançados para permitir análise rápida de grandes volumes de ofertas.</p><p class="text-slate-600 text-sm leading-relaxed">Validei fluxos com protótipos de baixa fidelidade e Typeform, garantindo que a interface atendesse à necessidade de clareza dos traders.</p></div>
+                            
+                             <!-- Placeholder Case Merx SUBSTITUÍDO PELA IMAGEM -->
+                             <div onclick="openLightbox(4)" class="mt-6 aspect-video bg-slate-50 rounded-xl border border-slate-200 overflow-hidden cursor-pointer group relative shadow-sm hover:shadow-md transition-all">
+                                <img src="media/Merx-sipal.png" alt="Interface MerX Sipal" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors flex items-center justify-center">
+                                     <span class="opacity-0 group-hover:opacity-100 bg-white text-slate-900 px-3 py-1 rounded-full text-xs font-bold shadow-sm transform translate-y-2 group-hover:translate-y-0 transition-all">Ver em tela cheia</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Liderança & Trajetória -->
+        <div class="grid md:grid-cols-2 gap-8 mb-32 reveal">
+            
+            <!-- Soft Skills -->
+            <section id="lideranca" class="spotlight-card bg-white border border-slate-200 rounded-3xl p-8 hover:border-slate-300 transition-colors">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-8 flex items-center gap-2">
+                    <i class="ph-bold ph-users-three"></i> Liderança & Cultura
+                </h2>
+                <ul class="space-y-8">
+                    <li class="flex gap-4 group">
+                        <div class="mt-1 text-slate-300 group-hover:text-emerald-500 transition-colors"><i class="ph-fill ph-check-circle text-lg"></i></div>
+                        <div>
+                            <h3 class="text-sm font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">Stakeholder Management</h3>
+                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Tradução de requisitos de negócio complexos em entregáveis de design claros e acionáveis.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-4 group">
+                        <div class="mt-1 text-slate-300 group-hover:text-emerald-500 transition-colors"><i class="ph-fill ph-check-circle text-lg"></i></div>
+                        <div>
+                            <h3 class="text-sm font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">Mentoria & Design Ops</h3>
+                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Estruturação de processos (handoff, naming conventions) e apoio ativo a designers juniores.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-4 group">
+                        <div class="mt-1 text-slate-300 group-hover:text-emerald-500 transition-colors"><i class="ph-fill ph-check-circle text-lg"></i></div>
+                        <div>
+                            <h3 class="text-sm font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">Decisão Pragmática</h3>
+                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Equilíbrio constante entre qualidade ideal de design e o time-to-market necessário para o negócio.</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Trajetória Timeline -->
+            <section id="trajetoria" class="bg-white border border-slate-200 rounded-3xl p-8 hover:border-slate-300 transition-colors">
+                <div class="flex items-center justify-between mb-8">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 flex items-center gap-2">
+                        <i class="ph-bold ph-path"></i> Timeline
+                    </h2>
+                    <a href="https://www.linkedin.com/in/cleidson-productdesigner/" target="_blank" class="text-[10px] font-medium text-slate-500 hover:text-blue-600 flex items-center gap-1 transition-colors">
+                        LinkedIn <i class="ph-bold ph-arrow-up-right"></i>
+                    </a>
+                </div>
+                
+                <div class="relative space-y-8 pl-2">
+                    <!-- Linha -->
+                    <div class="absolute left-[7px] top-2 bottom-4 w-px bg-gradient-to-b from-slate-200 to-transparent"></div>
+
+                    <!-- Item 1 -->
+                    <div class="relative pl-8 group">
+                        <div class="w-4 h-4 bg-white border-2 border-emerald-500 rounded-full absolute left-0 top-0.5 z-10 group-hover:scale-110 transition-transform shadow-sm"></div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                            <span class="text-sm font-bold text-slate-900">Soluevo (Repassa)</span>
+                            <span class="text-[10px] font-mono text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">2024 — Atual</span>
+                        </div>
+                        <p class="text-xs text-slate-500">Product Designer Sênior</p>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative pl-8 group">
+                        <div class="w-4 h-4 bg-white border-2 border-slate-300 rounded-full absolute left-0 top-0.5 z-10 group-hover:border-slate-400 transition-colors"></div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                            <span class="text-sm font-bold text-slate-900">Contmatic Phoenix</span>
+                            <span class="text-[10px] font-mono text-slate-400">2023 — 2024</span>
+                        </div>
+                        <p class="text-xs text-slate-500">Product Designer</p>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative pl-8 group">
+                        <div class="w-4 h-4 bg-white border-2 border-slate-300 rounded-full absolute left-0 top-0.5 z-10 group-hover:border-slate-400 transition-colors"></div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                            <span class="text-sm font-bold text-slate-900">MerX Carbon</span>
+                            <span class="text-[10px] font-mono text-slate-400">2022 — 2023</span>
+                        </div>
+                        <p class="text-xs text-slate-500">Product Designer</p>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="relative pl-8 group">
+                        <div class="w-4 h-4 bg-white border-2 border-slate-300 rounded-full absolute left-0 top-0.5 z-10 group-hover:border-slate-400 transition-colors"></div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                            <span class="text-sm font-bold text-slate-900">Alldesk</span>
+                            <span class="text-[10px] font-mono text-slate-400">2020 — 2022</span>
+                        </div>
+                        <p class="text-xs text-slate-500">UX/UI Designer</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Reconhecimento -->
+        <section class="max-w-5xl mx-auto mb-32 reveal delay-200">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6 pl-2">Reconhecimento & Certificações</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white border border-slate-200 p-5 rounded-2xl hover:border-slate-300 hover:shadow-md transition-all cursor-default group">
+                    <i class="ph-fill ph-trophy text-yellow-500 text-2xl mb-3 group-hover:scale-110 transition-transform block"></i>
+                    <h4 class="font-bold text-xs text-slate-900">Grand Prix Inovação</h4>
+                    <p class="text-[10px] text-slate-500 mt-1">Destaque por solução.</p>
+                </div>
+                <div class="bg-white border border-slate-200 p-5 rounded-2xl hover:border-slate-300 hover:shadow-md transition-all cursor-default group">
+                    <i class="ph-fill ph-rocket-launch text-purple-500 text-2xl mb-3 group-hover:scale-110 transition-transform block"></i>
+                    <h4 class="font-bold text-xs text-slate-900">StartupCE 2022</h4>
+                    <p class="text-[10px] text-slate-500 mt-1">Aceleração.</p>
+                </div>
+                <div class="bg-white border border-slate-200 p-5 rounded-2xl hover:border-slate-300 hover:shadow-md transition-all cursor-default group">
+                    <i class="ph-fill ph-code text-blue-500 text-2xl mb-3 group-hover:scale-110 transition-transform block"></i>
+                    <h4 class="font-bold text-xs text-slate-900">Hackathon Solar</h4>
+                    <p class="text-[10px] text-slate-500 mt-1">Coca-Cola.</p>
+                </div>
+                <div class="bg-white border border-slate-200 p-5 rounded-2xl hover:border-slate-300 hover:shadow-md transition-all cursor-default group">
+                    <i class="ph-fill ph-student text-emerald-500 text-2xl mb-3 group-hover:scale-110 transition-transform block"></i>
+                    <h4 class="font-bold text-xs text-slate-900">Design Digital</h4>
+                    <p class="text-[10px] text-slate-500 mt-1">UNIASSELVI (2026).</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-12 no-print">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+                <span class="font-bold text-lg tracking-tight block text-slate-900">Cleidson Franklin</span>
+                <span class="text-sm text-slate-500">Product Designer Sênior</span>
+                <div class="mt-2 flex items-center justify-center md:justify-start gap-2 text-xs text-slate-400 font-mono" id="live-time">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span><span id="clock">00:00</span> • Paraná, BR
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="mailto:cleidson.ux@gmail.com" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors"><i class="ph-bold ph-envelope-simple text-xl"></i></a>
+                <a href="https://www.linkedin.com/in/cleidson-productdesigner/" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition-colors"><i class="ph-bold ph-linkedin-logo text-xl"></i></a>
+                <a href="https://wa.me/554591249512" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors"><i class="ph-bold ph-whatsapp-logo text-xl"></i></a>
+                <a href="https://github.com/cleidsonux" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 text-slate-600 hover:bg-slate-900 hover:text-white transition-colors"><i class="ph-bold ph-github-logo text-xl"></i></a>
+            </div>
+        </div>
+        <div class="max-w-5xl mx-auto px-6 mt-8 text-center md:text-left text-[10px] text-slate-400 font-mono flex flex-col md:flex-row justify-between items-center gap-2">
+            <span>&copy; <span id="year"></span> Cleidson Franklin.</span>
+            <span>Feito com HTML + Tailwind CSS.</span>
+        </div>
+    </footer>
+
+    <!-- Lightbox Overlay (Rolável para imagens longas) -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-slate-950/95 backdrop-blur-xl hidden opacity-0 transition-opacity duration-300 overflow-y-auto" onclick="if(event.target === this || event.target.id === 'lightbox-wrapper') closeLightbox()">
+        
+        <!-- Botões de Navegação (Fixos na tela) -->
+        <button onclick="closeLightbox()" class="fixed top-6 right-6 text-slate-400 hover:text-white transition-colors z-[102] bg-slate-900/50 rounded-full p-2 backdrop-blur-sm hover:bg-slate-800"><i class="ph-bold ph-x text-3xl"></i></button>
+        <button onclick="navigateLightbox(-1)" class="fixed left-4 md:left-8 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white transition-colors z-[102] bg-slate-900/50 rounded-full p-2 backdrop-blur-sm hover:bg-slate-800"><i class="ph-bold ph-caret-left text-4xl"></i></button>
+        <button onclick="navigateLightbox(1)" class="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white transition-colors z-[102] bg-slate-900/50 rounded-full p-2 backdrop-blur-sm hover:bg-slate-800"><i class="ph-bold ph-caret-right text-4xl"></i></button>
+        
+        <!-- Wrapper para centralização e scroll -->
+        <div id="lightbox-wrapper" class="min-h-full flex items-center justify-center p-4 md:p-12">
+            <div class="max-w-5xl w-full relative flex flex-col items-center" onclick="event.stopPropagation()">
+                <!-- Imagem sem limite de altura (max-h), permitindo scroll -->
+                <img id="lightbox-img" src="" alt="Gallery Image" class="w-full h-auto rounded-lg shadow-2xl">
+                <p id="lightbox-caption" class="text-slate-300 mt-6 font-medium text-lg text-center mb-4"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Gallery Data - Atualizado com TODAS as imagens
+        const galleryItems = [
+            { src: "media/mobile-captacao.png", title: "Fluxo de Cadastro Mobile" },
+            { src: "media/discovery.png", title: "Discovery & Métricas" },
+            { src: "media/transacional.png", title: "Comunicação Transacional" },
+            { src: "media/contmatic-pesquisa.png", title: "Pesquisa & Comparativo - Contmatic" }, // Index 3
+            { src: "media/Merx-sipal.png", title: "Design System & Interface - MerX" }        // Index 4
+        ];
+        let currentImageIndex = 0;
+
+        window.openLightbox = function(index) {
+            currentImageIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            updateLightboxContent();
+            lightbox.classList.remove('hidden');
+            setTimeout(() => lightbox.classList.remove('opacity-0'), 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        window.closeLightbox = function() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('opacity-0');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        window.navigateLightbox = function(step) {
+            currentImageIndex = (currentImageIndex + step + galleryItems.length) % galleryItems.length;
+            updateLightboxContent();
+        }
+
+        function updateLightboxContent() {
+            const img = document.getElementById('lightbox-img');
+            const caption = document.getElementById('lightbox-caption');
+            const item = galleryItems[currentImageIndex];
+            
+            img.src = item.src;
+            caption.textContent = item.title;
+        }
+        
+        // Keyboard nav
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('lightbox').classList.contains('hidden')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') navigateLightbox(1);
+                if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            }
         });
 
-        // Scripts para mostrar/esconder o detalhe do projeto
-        const mainContent = document.getElementById('main-content');
-        const projectDetailContent = document.getElementById('project-detail-content');
-        const portfolioHeader = document.getElementById('portfolio-header');
-
-        function showProjectDetail(event, projectId) {
-            event.preventDefault();
-            mainContent.classList.add('hidden');
-            if (portfolioHeader) {
-                portfolioHeader.classList.add('hidden');
+        document.addEventListener('DOMContentLoaded', () => {
+            // Copy Email
+            window.copyEmail = function() {
+                const email = "cleidson.ux@gmail.com";
+                navigator.clipboard.writeText(email).then(() => { alert("Email copiado!"); toggleCmdK(); });
             }
-            projectDetailContent.classList.remove('hidden');
-
-            // Esconde todos os outros detalhes de projeto
-            const allProjectPages = document.querySelectorAll('.project-page');
-            allProjectPages.forEach(page => {
-                page.classList.add('hidden');
+            
+            // Navigation
+            window.navigateTo = function(selector) { 
+                const el = document.querySelector(selector);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                    // Close overlays if open
+                    const cmdk = document.getElementById('cmdk-overlay');
+                    if (cmdk && cmdk.classList.contains('open')) toggleCmdK();
+                }
+            }
+            
+            // CMDK
+            const cmdkOverlay = document.getElementById('cmdk-overlay');
+            window.toggleCmdK = function() {
+                if (!cmdkOverlay) return;
+                const isOpen = cmdkOverlay.classList.contains('open');
+                if (isOpen) { 
+                    cmdkOverlay.classList.remove('open'); 
+                    cmdkOverlay.classList.add('invisible'); 
+                    document.body.style.overflow = 'auto'; 
+                } else { 
+                    cmdkOverlay.classList.remove('invisible'); 
+                    cmdkOverlay.classList.add('open'); 
+                    document.body.style.overflow = 'hidden'; 
+                    const input = cmdkOverlay.querySelector('input');
+                    if (input) input.focus(); 
+                }
+            }
+            document.addEventListener('keydown', (e) => { 
+                if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();toggleCmdK();} 
+                if(e.key==='Escape'&&cmdkOverlay && cmdkOverlay.classList.contains('open')){toggleCmdK();} 
             });
 
-            // Mostra o detalhe do projeto clicado
-            const targetProject = document.getElementById(projectId);
-            if (targetProject) {
-                targetProject.classList.remove('hidden');
-            }
-
-            window.scrollTo(0, 0);
-        }
-
-        function hideProjectDetail(event) {
-            event.preventDefault();
-            projectDetailContent.classList.add('hidden');
-            mainContent.classList.remove('hidden');
-            if (portfolioHeader) {
-                portfolioHeader.classList.remove('hidden');
-            }
-            const projectsSection = document.getElementById('projetos');
-            if(projectsSection) {
-                projectsSection.scrollIntoView();
-                history.replaceState(null, '', '#projetos');
-            }
-        }
-    </script>
-    <script>
-        class ArrowPointer {
-          constructor() {
-            this.root = document.body
-            this.cursor = document.querySelector(".curzr")
-
-            this.position = {
-              distanceX: 0, 
-              distanceY: 0,
-              distance: 0,
-              pointerX: 0,
-              pointerY: 0,
-            },
-            this.previousPointerX = 0
-            this.previousPointerY = 0
-            this.angle = 0
-            this.previousAngle = 0
-            this.angleDisplace = 0
-            this.degrees = 57.296
-            this.cursorSize = 32
-
-            this.cursorStyle = {
-              boxSizing: 'border-box',
-              position: 'fixed',
-              top: '0px',
-              left: `${ -this.cursorSize / 2 }px`,
-              zIndex: '2147483647',
-              width: `${ this.cursorSize }px`,
-              height: `${ this.cursorSize }px`,
-              transition: '250ms, transform 100ms',
-              userSelect: 'none',
-              pointerEvents: 'none'
-            }
-
-            this.init(this.cursor, this.cursorStyle)
-          }
-
-          init(el, style) {
-            Object.assign(el.style, style)
-            this.cursor.removeAttribute("hidden")
+            // Personal Panel
+            const personalPanel = document.getElementById('personal-panel');
+            const personalOverlay = document.getElementById('personal-overlay');
             
-          }
-
-          move(event) {
-            this.previousPointerX = this.position.pointerX
-            this.previousPointerY = this.position.pointerY
-            this.position.pointerX = event.pageX - window.scrollX
-            this.position.pointerY = event.pageY - window.scrollY
-            this.position.distanceX = this.previousPointerX - this.position.pointerX
-            this.position.distanceY = this.previousPointerY - this.position.pointerY
-            this.distance = Math.sqrt(this.position.distanceY ** 2 + this.position.distanceX ** 2)
-          
-            this.cursor.style.transform = `translate3d(${this.position.pointerX}px, ${this.position.pointerY}px, 0)`
-
-            if (this.distance > 1) {
-              this.rotate(this.position)
-            } else {
-              this.cursor.style.transform += ` rotate(${this.angleDisplace}deg)`
+            window.togglePersonalPanel = function() {
+                if (!personalPanel || !personalOverlay) return;
+                if(personalPanel.classList.contains('open')) { 
+                    personalPanel.classList.remove('open'); 
+                    personalOverlay.classList.remove('open'); 
+                    personalOverlay.classList.add('invisible'); 
+                    document.body.style.overflow='auto'; 
+                } else { 
+                    personalPanel.classList.add('open'); 
+                    personalOverlay.classList.remove('invisible'); 
+                    personalOverlay.classList.add('open'); 
+                    document.body.style.overflow='hidden'; 
+                }
             }
-          }
+            
+            // Event listeners for personal panel toggle buttons
+            const closePanelBtn = document.getElementById('close-personal-panel');
+            if(closePanelBtn) closePanelBtn.addEventListener('click', togglePersonalPanel);
+            
+            if(personalOverlay) personalOverlay.addEventListener('click', togglePersonalPanel);
 
-          rotate(position) {
-            let unsortedAngle = Math.atan(Math.abs(position.distanceY) / Math.abs(position.distanceX)) * this.degrees
-            let modAngle
-            const style = this.cursor.style
-            this.previousAngle = this.angle
-
-            if (position.distanceX <= 0 && position.distanceY >= 0) {
-              this.angle = 90 - unsortedAngle + 0
-            } else if (position.distanceX < 0 && position.distanceY < 0) {
-              this.angle = unsortedAngle + 90
-            } else if (position.distanceX >= 0 && position.distanceY <= 0) {
-              this.angle = 90 - unsortedAngle + 180
-            } else if (position.distanceX > 0 && position.distanceY > 0) {
-              this.angle = unsortedAngle + 270
+            // Clock
+            function updateClock() {
+                const now = new Date();
+                const clockEl = document.getElementById('clock');
+                if(clockEl) clockEl.textContent = now.toLocaleTimeString('pt-BR', { timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit' });
             }
+            setInterval(updateClock, 1000); updateClock();
 
-            if (isNaN(this.angle)) {
-              this.angle = this.previousAngle
-            } else {
-              if (this.angle - this.previousAngle <= -270) {
-                this.angleDisplace += 360 + this.angle - this.previousAngle
-              } else if (this.angle - this.previousAngle >= 270) {
-                this.angleDisplace += this.angle - this.previousAngle - 360
-              } else {
-                this.angleDisplace += this.angle - this.previousAngle
-              }
+            // Navbar & Scroll
+            let lastScrollY = window.scrollY;
+            const navbar = document.getElementById('navbar-wrapper');
+            const progressBar = document.getElementById('progress-bar');
+            
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                if(navbar) {
+                    if(currentScrollY > lastScrollY && currentScrollY > 100) navbar.classList.add('nav-hidden'); 
+                    else navbar.classList.remove('nav-hidden');
+                }
+                lastScrollY = currentScrollY;
+                
+                if(progressBar) {
+                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrolled = (currentScrollY / height) * 100;
+                    progressBar.style.width = scrolled + "%";
+                }
+            });
+
+            // Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('active'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            
+            const yearEl = document.getElementById('year');
+            if(yearEl) yearEl.textContent = new Date().getFullYear();
+
+            // Spotlight
+            document.querySelectorAll('.spotlight-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+                    card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+                });
+            });
+
+            // Click interactions for overlay and close button
+            const cmdkBtn = document.getElementById('cmd-k-btn');
+            if(cmdkBtn) cmdkBtn.addEventListener('click', toggleCmdK);
+
+            const brainBtn = document.getElementById('brain-btn');
+            if(brainBtn) brainBtn.addEventListener('click', togglePersonalPanel);
+            
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+             if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                     const isOpen = mobileMenu.style.opacity === '1';
+                    if (isOpen) {
+                        mobileMenu.style.opacity = '0';
+                         mobileMenu.style.pointerEvents = 'none';
+                         mobileMenu.classList.add('scale-95');
+                    } else {
+                         mobileMenu.style.opacity = '1';
+                         mobileMenu.style.pointerEvents = 'auto';
+                         mobileMenu.classList.remove('scale-95');
+                    }
+                });
+                
+                // Close mobile menu on link click
+                document.querySelectorAll('.mobile-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.style.opacity = '0';
+                        mobileMenu.style.pointerEvents = 'none';
+                        mobileMenu.classList.add('scale-95');
+                    });
+                });
             }
-            style.transform += ` rotate(${this.angleDisplace}deg)`
+        });
+
+        // --- LÓGICA DE PROTEÇÃO (CORRIGIDA UTF-8) ---
+
+    // Nova Senha: "H7k-B9z"
+    const TARGET_HASH = "SDdrLUI5ekNGLVNlY3VyZQ=="; 
+
+    // Conteúdo HTML do projeto codificado CORRETAMENTE (suportando acentos UTF-8)
+    // Atualizado com as tags <img> apontando para a pasta 'media/'
+    const ENCRYPTED_CONTENT = "PGRpdiBjbGFzcz0iZ3JpZCBtZDpncmlkLWNvbHMtMTIgZ2FwLTEyIHJlbGF0aXZlIHotMTAiPgogICAgPGRpdiBjbGFzcz0ibWQ6Y29sLXNwYW4tNCBmbGV4IGZsZXgtY29sIGdhcC02Ij4KICAgICAgICA8ZGl2PgogICAgICAgICAgICA8ZGl2IGNsYXNzPSJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMyBtYi00Ij4KICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzPSJ3LTIgaC0yIHJvdW5kZWQtZnVsbCBiZy1lbWVyYWxkLTUwMCBzaGFkb3ctWzBfMF8xMHB4X3JnYmEoMTYsMTg1LDEyOSwwLjUpXSBhbmltYXRlLXB1bHNlIj48L3NwYW4+CiAgICAgICAgICAgICAgICA8c3BhbiBjbGFzcz0idGV4dC14cyBmb250LW1vbm8gdXBwZXJjYXNlIHRyYWNraW5nLXdpZGVzdCB0ZXh0LWVtZXJhbGQtNDAwIj5FbSBwcm9kdSZjY2VkaWw7JmF0aWxkZTxvICZidWxsOyAyOSBPdXQgLSAwNSBNYXI8L3NwYW4+CiAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICA8aDMgY2xhc3M9InRleHQtM3hsIG1kOnRleHQtNHhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIG1iLTIgdHJhY2tpbmctdGlnaHQiPlJlcGFzc2E6IENhcHRhJmNjZWRpbDsmYXRpbGRlO28gSW50ZWxpZ2VudGU8L2gzPgogICAgICAgICAgICA8cCBjbGFzcz0idGV4dC1sZyB0ZXh0LXNsYXRlLTQwMCBmb250LWxpZ2h0Ij5Fc3RyYXQmZWFjdXRlO2dpYSBkZSByZXRvbWFkYSBkZSBlc3RvcXVlIHZpYSBOb0NvZGUgZSBJbnRlbGlnJmVjaXJjO25jaWEgQXJ0aWZpY2lhbC48L3A+CiAgICAgICAgPC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0iYmctc2xhdGUtODAwLzYwIGJvcmRlciBib3JkZXItc2xhdGUtNzAwLzUwIHJvdW5kZWQtMnhsIHAtNiBob3ZlcjpiZy1zbGF0ZS04MDAgdHJhbnNpdGlvbi1jb2xvcnMgc2hhZG93LWxnIj4KICAgICAgICAgICAgPGg0IGNsYXNzPSJ0ZXh0LVsxMHB4XSBmb250LWJvbGQgdXBwZXJjYXNlIHRyYWNraW5nLXdpZGVzdCB0ZXh0LWVtZXJhbGQtNDAwIG1iLTUgb3BhY2l0eS05MCBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiI+CiAgICAgICAgICAgICAgICA8aSBjbGFzcz0icGgtYm9sZCBwaC1jaGFydC1saW5lLXVwIj48L2k+IEltcGFjdG8gQ29uZmlybWFkbwogICAgICAgICAgICA8L2g0PgogICAgICAgICAgICA8ZGl2IGNsYXNzPSJzcGFjZS15LTYiPgogICAgICAgICAgICAgICAgPGRpdj4KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmbGV4IGl0ZW1zLWJhc2VsaW5lIGdhcC0yIj4KICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9InRleHQtNXhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIHRyYWNraW5nLXRpZ2h0ZXIiPjg1JTwvc3Bhbj4KICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9InRleHQteHMgdGV4dC1lbWVyYWxkLTQwMCBmb250LW1vbm8gYmctZW1lcmFsZC05NTAvNTAgcHgtMiBweS0xIHJvdW5kZWQiPis2NSU8L3NwYW4+CiAgICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3M9InRleHQteHMgdGV4dC1zbGF0ZS00MDAgbXQtMSB1cHBlcmNhc2UgdHJhY2tpbmctd2lkZSBmb250LW1lZGl1bSI+VGF4YSBkZSBBcHJvdmEmY2NlZGlsOyZhdGlsZGU7bzwvcD4KICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iaC1weCB3LWZ1bGwgYmctc2xhdGUtNzAwLzUwIj48L2Rpdj4KICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImdyaWQgZ3JpZC1jb2xzLTIgZ2FwLTQiPgogICAgICAgICAgICAgICAgICAgIDxkaXY+PHNwYW4gY2xhc3M9ImJsb2NrIHRleHQtbGcgZm9udC1ib2xkIHRleHQtd2hpdGUgdHJhY2tpbmctdGlnaHQiPjEuMzcwPC9zcGFuPjxzcGFuIGNsYXNzPSJ0ZXh0LVsxMHB4XSB0ZXh0LWVtZXJhbGQtMjAwIj5TdWJtaXNzJm90aWxkZTtlczwvc3Bhbj48L2Rpdj4KICAgICAgICAgICAgICAgICAgICA8ZGl2PjxzcGFuIGNsYXNzPSJibG9jayB0ZXh0LWxnIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIHRyYWNraW5nLXRpZ2h0Ij4yOC44Szwvc3Bhbj48c3BhbiBjbGFzcz0idGV4dC1bMTBweF0gdGV4dC1lbWVyYWxkLTIwMCI+UGUmY2NlZGlsO2FzIFByJmVhY3V0ZTstYXByb3YuPC9zcGFuPjwvZGl2PgogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIDwvZGl2PgogICAgICAgIDwvZGl2PgogICAgICAgIDxkaXYgY2xhc3M9ImJnLXNsYXRlLTgwMC81MCBib3JkZXIgYm9yZGVyLXNsYXRlLTcwMC81MCByb3VuZGVkLTJ4bCBwLTYiPgogICAgICAgICAgICA8aDQgY2xhc3M9InRleHQteHMgZm9udC1ib2xkIHRleHQtc2xhdGUtNTAwIHVwcGVyY2FzZSB0cmFja2luZy13aWRlc3QgbWItNCBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiI+CiAgICAgICAgICAgICAgICA8aSBjbGFzcz0icGgtZmlsbCBwaC1oZWFydCB0ZXh0LXBpbmstNDAwIj48L2k+IFNhdGlzZmEmY2NlZGlsOyZhdGlsZGU7byAoQ1NBVCkKICAgICAgICAgICAgPC9oND4KICAgICAgICAgICAgPGRpdiBjbGFzcz0iZmxleCBpdGVtcy1lbmQganVzdGlmeS1iZXR3ZWVuIj4KICAgICAgICAgICAgICAgIDxkaXY+CiAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9ImJsb2NrIHRleHQtNHhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIHRyYWNraW5nLXRpZ2h0ZXIiPjQuMDwvc3Bhbj4KICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzcz0idGV4dC14cyB0ZXh0LXNsYXRlLTQwMCI+ZGUgNS4wIGVzdHJlbGFzPC9zcGFuPgogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJ0ZXh0LXJpZ2h0Ij4KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmbGV4IHRleHQteWVsbG93LTQwMCB0ZXh0LXNtIG1iLTEiPjxpIGNsYXNzPSJwaC1maWxsIHBoLXN0YXIiPjwvaT48aSBjbGFzcz0icGgtZmlsbCBwaC1zdGFyIj48L2k+PGkgY2xhc3M9InBoLWZpbGwgcGgtc3RhciI+PC9pPjxpIGNsYXNzPSJwaC1maWxsIHBoLXN0YXIiPjwvaT48aSBjbGFzcz0icGgtZmlsbCBwaC1zdGFyIHRleHQtc2xhdGUtNjAwIj48L2k+PC9kaXY+CiAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9InRleHQtWzEwcHhdIHRleHQtc2xhdGUtNTAwIj4zMDArIHJlc3Bvc3Rhczwvc3Bhbj4KICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgPHAgY2xhc3M9InRleHQteHMgdGV4dC1zbGF0ZS0zMDAgbXQtNCBsZWFkaW5nLXJlbGF4ZWQgYm9yZGVyLXQgYm9yZGVyLXNsYXRlLTcwMC81MCBwdC0zIj4KICAgICAgICAgICAgICAgIEZlZWRiYWNrIGRpcmV0byBkb3MgdmVuZGVkb3JlcyBzb2JyZSBhIG5vdmEgZXhwZXJpJmNpcmM7bmNpYSBkZSBjYXB0YSZjY2VkaWw7JmF0aWxkZTtvLgogICAgICAgICAgICA8L3A+CiAgICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KICAgIDxkaXYgY2xhc3M9Im1kOmNvbC1zcGFuLTggc3BhY2UteS0xMiI+CiAgICAgICAgPGRpdiBjbGFzcz0ic3BhY2UteS00Ij4KICAgICAgICAgICAgPGg0IGNsYXNzPSJ0ZXh0LXhzIGZvbnQtYm9sZCB0ZXh0LXNsYXRlLTUwMCB1cHBlcmNhc2UgdHJhY2tpbmctd2lkZXN0IG1iLTIgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIiPjxpIGNsYXNzPSJwaC1maWxsIHBoLXRhcmdldCB0ZXh0LWVtZXJhbGQtNTAwIj48L2k+IE8gQ29udGV4dG8gQ3ImaWFjdXRlO3RpY288L2g0PgogICAgICAgICAgICA8aDIgY2xhc3M9InRleHQteGwgbWQ6dGV4dC0yeGwgdGV4dC13aGl0ZSBmb250LWJvbGQgbGVhZGluZy10aWdodCI+UmV0b21hciBhIGNhcHRhJmNjZWRpbDsmYXRpbGRlO28gZGUgZXN0b3F1ZSBzZW0gc29icmVjYXJyZWdhciBhIGxvZyZpYWN1dGU7c3RpY2EgcmV2ZXJzYS48L2gyPgogICAgICAgICAgICA8cCBjbGFzcz0idGV4dC1iYXNlIHRleHQtc2xhdGUtMzAwIGxlYWRpbmctcmVsYXhlZCI+QXAmb2FjdXRlO3MgdW1hIHBhdXNhIGVzdHJhdCZlYWN1dGU7Z2ljYSwgYSBSZXBhc3NhIHByZWNpc2F2YSB2b2x0YXIgYSByZWNlYmVyICJTYWNvbGFzIGRvIEJlbSIuIE8gcmlzY28gZXJhIHJlY2ViZXIgcGUmY2NlZGlsO2FzIGNvbSBhdmFyaWFzLCBnZXJhbmRvIGN1c3RvIG9wZXJhY2lvbmFsLiBPIHJvYWRtYXAgZGUgZW5nZW5oYXJpYSBlc3RhdmEgdHJhdmFkbyBwb3IgbWlncmEmY2NlZGlsOyZvdGlsZGU7ZXMuPC9wPgogICAgICAgIDwvZGl2PgogICAgICAgIDxkaXYgY2xhc3M9ImJnLXNsYXRlLTk1MCBib3JkZXIgYm9yZGVyLXNsYXRlLTgwMCByb3VuZGVkLTN4bCBwLTggcmVsYXRpdmUgb3ZlcmZsb3ctaGlkZGVuIGdyb3VwIj4KICAgICAgICAgICAgPGRpdiBjbGFzcz0id2lyZWZyYW1lLWJveCBhYnNvbHV0ZSBpbnNldC0wIj48L2Rpdj4KICAgICAgICAgICAgPGRpdiBjbGFzcz0icmVsYXRpdmUgei0xMCI+CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmbGV4IGZsZXgtY29sIG1kOmZsZXgtcm93IG1kOml0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gbWItOCBnYXAtNCI+CiAgICAgICAgICAgICAgICAgICAgPGg0IGNsYXNzPSJ0ZXh0LXhzIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIHVwcGVyY2FzZSB0cmFja2luZy13aWRlc3QgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIiPjxpIGNsYXNzPSJwaC1maWxsIHBoLWNvZGUgdGV4dC1wdXJwbGUtNTAwIj48L2k+IEFycXVpdGV0dXJhIE5vQ29kZTwvaDQ+CiAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9InRleHQtWzEwcHhdIGZvbnQtbW9ubyBiZy1wdXJwbGUtOTAwLzIwIHRleHQtcHVycGxlLTMwMCBweC0zIHB5LTEgcm91bmRlZC1mdWxsIGJvcmRlciBib3JkZXItcHVycGxlLTUwMC8yMCI+VGVtcG86ICZsdDsgMSBTZW1hbmE8L3NwYW4+CiAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImdyaWQgbWQ6Z3JpZC1jb2xzLTMgZ2FwLTYgdGV4dC1zbSI+CiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iYmctc2xhdGUtOTAwLzUwIHAtNCByb3VuZGVkLXhsIGJvcmRlciBib3JkZXItc2xhdGUtODAwIj48ZGl2IGNsYXNzPSJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiBtYi0zIHRleHQtd2hpdGUgZm9udC1ib2xkIj48aSBjbGFzcz0icGgtZmlsbCBwaC1maWdtYS1sb2dvIHRleHQtbGciPjwvaT4gRnJvbnQtZW5kPC9kaXY+PHAgY2xhc3M9InRleHQtc2xhdGUtNDAwIHRleHQteHMiPkZvcm11bCZhYWN1dGU7cmlvIGludGVsaWdlbnRlIHZpYSA8c3Ryb25nPkZpZ21hIE1ha2U8L3N0cm9uZz4gY29tIHZhbGlkYSZjY2VkaWw7JmF0aWxkZTtvIGRlIG1hcmNhcyBlIGluc3RydSZjY2VkaWw7Jm90aWxkZTtlcy48L3A+PC9kaXY+CiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iYmctc2xhdGUtOTAwLzUwIHAtNCByb3VuZGVkLXhsIGJvcmRlciBib3JkZXItc2xhdGUtODAwIj48ZGl2IGNsYXNzPSJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiBtYi0zIHRleHQtZW1lcmFsZC00MDAgZm9udC1ib2xkIj48aSBjbGFzcz0icGgtZmlsbCBwaC1kYXRhYmFzZSB0ZXh0LWxnIj48L2k+IEJhY2sgJiBTZWM8L2Rpdj48cCBjbGFzcz0idGV4dC1zbGF0ZS00MDAgdGV4dC14cyI+PHN0cm9uZz5TdXBhYmFzZTwvc3Ryb25nPiBjLyBSTFMgZSB0YWJlbGFzIHNlZ3VyYXMsIHZhbGlkYWRvIHBlbGEgU2VjSW5mbyBkYSBSZW5uZXIuPC9wPjwvZGl2PgogICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImJnLXNsYXRlLTkwMC81MCBwLTQgcm91bmRlZC14bCBib3JkZXIgYm9yZGVyLXNsYXRlLTgwMCI+PGRpdiBjbGFzcz0iZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgbWItMyB0ZXh0LXdoaXRlIGZvbnQtYm9sZCI+PGkgY2xhc3M9InBoLWZpbGwgcGgtZ2VhciB0ZXh0LWxnIj48L2k+IE9wczwvZGl2PjxwIGNsYXNzPSJ0ZXh0LXNsYXRlLTQwMCB0ZXh0LXhzIj5FbWFpbHMgdHJhbnNhY2lvbmFpcyB2aWEgPHN0cm9uZz5TZW5kR3JpZDwvc3Ryb25nPiBlIFBhaW5lbCBBZG1pbi48L3A+PC9kaXY+CiAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgPC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0iZ3JpZCBzbTpncmlkLWNvbHMtMiBnYXAtOCI+CiAgICAgICAgICAgIDxkaXYgY2xhc3M9InNwYWNlLXktMyI+CiAgICAgICAgICAgICAgICA8aDQgY2xhc3M9InRleHQteHMgZm9udC1ib2xkIHRleHQtc2xhdGUtNTAwIHVwcGVyY2FzZSB0cmFja2luZy13aWRlc3QgbWItMiI+UG93ZXIgQkkgSW5zaWRlPC9oND4KICAgICAgICAgICAgICAgIDxwIGNsYXNzPSJ0ZXh0LXNtIHRleHQtc2xhdGUtMzAwIGxlYWRpbmctcmVsYXhlZCI+RGFzaGJvYXJkIGVtIHRlbXBvIHJlYWwgY3J1emFuZG8gZGFkb3MgZG8gZm9ybXVsJmFhY3V0ZTtyaW8gY29tIG8gYmFja29mZmljZSAocGUmY2NlZGlsO2FzIGluZm9ybWFkYXMgdnMuIHJlY2ViaWRhcyBubyBDRCkuIFRvcCBtYXJjYXM6IFJlbm5lciwgSGVyaW5nLCBBZGlkYXMuPC9wPgogICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgPGRpdiBjbGFzcz0ic3BhY2UteS0zIj4KICAgICAgICAgICAgICAgIDxoNCBjbGFzcz0idGV4dC14cyBmb250LWJvbGQgdGV4dC1zbGF0ZS01MDAgdXBwZXJjYXNlIHRyYWNraW5nLXdpZGVzdCBtYi0yIj5JdGVyYSZjY2VkaWw7JmF0aWxkZTtvICYgTWVsaG9yaWE8L2g0PgogICAgICAgICAgICAgICAgPHAgY2xhc3M9InRleHQtc20gdGV4dC1zbGF0ZS0zMDAgbGVhZGluZy1yZWxheGVkIj5BanVzdGVzIGNvbnQmaWFjdXRlO251b3MgYmFzZWFkb3MgZW0gZmFsaGFzIChleDogYmxvcXVlaW8gZGUgc3ViLW1hcmNhcyBuJmF0aWxkZTtvIGFjZWl0YXMpIGUgbWVsaG9yaWEgbmEgaW5mcmEgZGUgZW1haWxzLjwvcD4KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgPC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0iYmctc2xhdGUtODAwLzQwIGJvcmRlciBib3JkZXItc2xhdGUtNzAwLzUwIHAtNiByb3VuZGVkLTJ4bCI+CiAgICAgICAgICAgIDxoNCBjbGFzcz0idGV4dC14cyBmb250LWJvbGQgdGV4dC1zbGF0ZS01MDAgdXBwZXJjYXNlIHRyYWNraW5nLXdpZGVzdCBtYi02IGZsZXggaXRlbXMtY2VudGVyIGdhcC0yIj4KICAgICAgICAgICAgICAgIDxpIGNsYXNzPSJwaC1maWxsIHBoLXBhaW50LWJydXNoLWJyb2FkIHRleHQtcGluay00MDAiPjwvaT4gRGVjaXMmb3RpbGRlO2VzIGRlIERlc2lnbiAmIFVYCiAgICAgICAgICAgIDwvaDQ+CiAgICAgICAgICAgIDxkaXYgY2xhc3M9ImdyaWQgc206Z3JpZC1jb2xzLTIgZ2FwLXgtOCBnYXAteS02Ij4KICAgICAgICAgICAgICAgIDxkaXY+CiAgICAgICAgICAgICAgICAg   PGg1IGNsYXNzPSJ0ZXh0LXdoaXRlIHRleHQtc20gZm9udC1ib2xkIG1iLTEgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIiPjxpIGNsYXNzPSJwaC1ib2xkIHBoLWhhbmQtcGFsbSB0ZXh0LXNsYXRlLTUwMCI+PC9pPiBGcmljJmNjZWRpbDsmYXRpbGRlO28gUG9zaXRpdmE8L2g1PgogICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzPSJ0ZXh0LXhzIHRleHQtc2xhdGUtNDAwIGxlYWRpbmctcmVsYXhlZCI+QWRpY2lvbmVpIGV0YXBhcyBvYnJpZ2F0Jm9hY3V0ZTtyaWFzIGRlIHZlcmlmaWNhJmNjZWRpbDsmYXRpbGRlO28gZGUgbWFyY2EgZSBhdmFyaWEuIEVtYm9yYSBhdW1lbnRlIG8gdGVtcG8gZGUgcHJlZW5jaGltZW50bywgcmVkdXogZHJhc3RpY2FtZW50ZSBhIHJlcHJvdmEmY2NlZGlsOyZhdGlsZGU7byBmJmlhY3V0ZTtzaWNhLjwvcD4KICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgPGRpdj4KICAgICAgICAgICAgICAgICAgICA8aDUgY2xhc3M9InRleHQtd2hpdGUgdGV4dC1zbSBmb250LWJvbGQgbWItMSBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiI+PGkgY2xhc3M9InBoLWJvbGQgcGgtZGV2aWNlLW1vYmlsZSB0ZXh0LXNsYXRlLTUwMCI+PC9pPiBNb2JpbGUtRmlyc3QgTmF0aXZvPC9oNT4KICAgICAgICAgICAgICAgICAgICA8cCBjbGFzcz0idGV4dC14cyB0ZXh0LXNsYXRlLTQwMCBsZWFkaW5nLXJlbGF4ZWQiPkNvbSA5MSUgZG9zIGFjZXNzb3MgdmlhIGNlbHVsYXIsIHByaW9yaXplaSBhIGV4cGVyaSZlY2lyYztuY2lhIG1vYmlsZSwgYWRhcHRhbmRvIGNvbXBvbmVudGVzIHBhcmEgdG9xdWUuPC9wPgogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICA8ZGl2PgogICAgICAgICAgICAgICAgICAgIDxoNSBjbGFzcz0idGV4dC13aGl0ZSB0ZXh0LXNtIGZvbnQtYm9sZCBtYi0xIGZsZXggaXRlbXMtY2VudGVyIGdhcC0yIj48aSBjbGFzcz0icGgtYm9sZCBwaC1saWdodG5pbmcgdGV4dC1zbGF0ZS01MDAiPjwvaT4gRmVlZGJhY2sgSW5zdGFudCZmY2lyYztuZW88L2g1PgogICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzPSJ0ZXh0LXhzIHRleHQtc2xhdGUtNDAwIGxlYWRpbmctcmVsYXhlZCI+VmFsaWRhZG9yZXMgaW5mb3JtYW0gc2UgdW1hIG1hcmNhICZlYWN1dGU7IGFjZWl0YSBhbnRlcyBkbyBlbnZpbywgZWR1Y2FuZG8gbyB2ZW5kZWRvciBlbSB0ZW1wbyByZWFsLjwvcD4KICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgPGRpdj4KICAgICAgICAgICAgICAgICAgICA8aDUgY2xhc3M9InRleHQtd2hpdGUgdGV4dC1zbSBmb250LWJvbGQgbWItMSBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiI+PGkgY2xhc3M9InBoLWJvbGQgcGgtZXllIHRleHQtc2xhdGUtNTAwIj48L2k+IEd1aWEgVmlzdWFsPC9oNT4KICAgICAgICAgICAgICAgICAgICA8cCBjbGFzcz0idGV4dC14cyB0ZXh0LXNsYXRlLTQwMCBsZWFkaW5nLXJlbGF4ZWQiPkV4ZW1wbG9zIHZpc3VhaXMgZGUgIkZvdG8gQm9hIHZzLiBGb3RvIFJ1aW0iIHJlZHV6ZW0gYSBjYXJnYSBjb2duaXRpdmEuPC9wPgogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIDwvZGl2PgogICAgICAgIDwvZGl2PgogICAgICAgIDxkaXYgY2xhc3M9ImdyaWQgZ3JpZC1jb2xzLTIgbWQ6Z3JpZC1jb2xzLTMgZ2FwLTQiPgogICAgICAgICAgICA8ZGl2IG9uY2xpY2s9Im9wZW5MaWdodGJveCgwKSIgY2xhc3M9ImFzcGVjdC1zcXVhcmUgYmctc2xhdGUtODAwIHJvdW5kZWQteGwgYm9yZGVyIGJvcmRlci1zbGF0ZS03MDAgb3ZlcmZsb3ctaGlkZGVuIGN1cnNvci1wb2ludGVyIGdyb3VwIHJlbGF0aXZlIj4KICAgICAgICAgICAgICAgIDxpbWcgc3JjPSJtZWRpYS9tb2JpbGUtY2FwdGFjYW8ucG5nIiBhbHQ9IkZvcm11bCZhYWN1dGU7cmlvIE1vYmlsZSIgY2xhc3M9InctZnVsbCBoLWZ1bGwgb2JqZWN0LWNvdmVyIG9wYWNpdHktODAgZ3JvdXAtaG92ZXI6b3BhY2l0eS0xMDAgdHJhbnNpdGlvbi1vcGFjaXR5IGR1cmF0aW9uLTMwMCI+CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJhYnNvbHV0ZSBpbnNldC0wIGJnLWdyYWRpZW50LXRvLXQgZnJvbS1zbGF0ZS05MDAvOTAgdG8tdHJhbnNwYXJlbnQgZmxleCBmbGV4LWNvbCBqdXN0aWZ5LWVuZCBwLTQiPgogICAgICAgICAgICAgICAg    PHNwYW4gY2xhc3M9InRleHQteHMgdGV4dC13aGl0ZSBmb250LWJvbGQiPkZvcm11bCZhYWN1dGU7cmlvIE1vYmlsZTwvc3Bhbj4KICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgPGRpdiBvbmNsaWNrPSJvcGVuTGlnaHRib3goMSkiIGNsYXNzPSJhc3BlY3Qtc3F1YXJlIGJnLXNsYXRlLTgwMCByb3VuZGVkLXhsIGJvcmRlciBib3JkZXItc2xhdGUtNzAwIG92ZXJmbG93LWhpZGRlbiBjdXJzb3ItcG9pbnRlciBncm91cCByZWxhdGl2ZSI+CiAgICAgICAgICAgICAgICA8aW1nIHNyYz0ibWVkaWEvZGlzY292ZXJ5LnBuZyIgYWx0PSJEaXNjb3ZlcnkiIGNsYXNzPSJ3LWZ1bGwgaC1mdWxsIG9iamVjdC1jb3ZlciBvcGFjaXR5LTgwIGdyb3VwLWhvdmVyOm9wYWNpdHktMTAwIHRyYW5zaXRpb24tb3BhY2l0eSBkdXJhdGlvbi0zMDAiPgogICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iYWJzb2x1dGUgaW5zZXQtMCBiZy1ncmFkaWVudC10by10IGZyb20tc2xhdGUtOTAwLzkwIHRvLXRyYW5zcGFyZW50IGZsZXggZmxleC1jb2wganVzdGlmeS1lbmQgcC00Ij4KICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzcz0idGV4dC14cyB0ZXh0LXdoaXRlIGZvbnQtYm9sZCI+RGlzY292ZXJ5ICYgTSZlYWN1dGU7dHJpY2FzPC9zcGFuPgogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICA8ZGl2IG9uY2xpY2s9Im9wZW5MaWdodGJveCgyKSIgY2xhc3M9ImFzcGVjdC1zcXVhcmUgYmctc2xhdGUtODAwIHJvdW5kZWQteGwgYm9yZGVyIGJvcmRlci1zbGF0ZS03MDAgb3ZlcmZsb3ctaGlkZGVuIGN1cnNvci1wb2ludGVyIGdyb3VwIHJlbGF0aXZlIj4KICAgICAgICAgICAgICAgIDxpbWcgc3JjPSJtZWRpYS90cmFuc2FjaW9uYWwucG5nIiBhbHQ9IkVtYWlsIFRyYW5zYWNpb25hbCIgY2xhc3M9InctZnVsbCBoLWZ1bGwgb2JqZWN0LWNvdmVyIG9wYWNpdHktODAgZ3JvdXAtaG92ZXI6b3BhY2l0eS0xMDAgdHJhbnNpdGlvbi1vcGFjaXR5IGR1cmF0aW9uLTMwMCI+CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJhYnNvbHV0ZSBpbnNldC0wIGJnLWdyYWRpZW50LXRvLXQgZnJvbS1zbGF0ZS05MDAvOTAgdG8tdHJhbnNwYXJlbnQgZmxleCBmbGV4LWNvbCBqdXN0aWZ5LWVuZCBwLTQiPgogICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzPSJ0ZXh0LXhzIHRleHQtd2hpdGUgZm9udC1ib2xkIj5FbWFpbCBUcmFuc2FjaW9uYWw8L3NwYW4+CiAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KPC9kaXY+";
+
+    window.unlockProject = function() {
+        const input = document.getElementById('unlock-pass');
+        const errorMsg = document.getElementById('error-msg');
+        const lockScreen = document.getElementById('project-lock');
+        const content = document.getElementById('project-content');
+        
+        // Verifica a senha de forma síncrona (funciona offline)
+        // btoa converte para Base64
+        if (btoa(input.value + "CF-Secure") === TARGET_HASH) {
+            // Sucesso
+            input.blur();
+            errorMsg.style.opacity = '0';
+            
+            // Decodifica o conteúdo e INJETA no DOM
+            // Usamos atob simples pois o conteúdo foi codificado como ASCII-safe (usando entidades HTML)
+            try {
+                content.innerHTML = atob(ENCRYPTED_CONTENT);
+            } catch(e) {
+                console.error("Erro ao decodificar conteúdo", e);
+                alert("Erro ao carregar projeto. Verifique o console.");
+                return;
+            }
+            
+            // Animação
+            lockScreen.style.opacity = '0';
+            lockScreen.style.pointerEvents = 'none';
+            content.classList.remove('hidden');
+            setTimeout(() => {
+                content.style.opacity = '1';
+            }, 50);
+
+        } else {
+            // Erro
+            errorMsg.style.opacity = '1';
+            input.classList.add('border-red-500', 'text-red-300');
+            input.classList.remove('border-slate-700');
+            
+            // Shake Animation
+            input.animate([
+                { transform: 'translateX(0)' },
+                { transform: 'translateX(-5px)' },
+                { transform: 'translateX(5px)' },
+                { transform: 'translateX(0)' }
+            ], { duration: 300 });
 
             setTimeout(() => {
-              modAngle = this.angleDisplace >= 0 ? this.angleDisplace % 360 : 360 + this.angleDisplace % 360
-              if (modAngle >= 45 && modAngle < 135) {
-                style.left = `${ -this.cursorSize }px`
-                style.top = `${ -this.cursorSize / 2 }px`
-              } else if (modAngle >= 135 && modAngle < 225) {
-                style.left = `${ -this.cursorSize / 2 }px`
-                style.top = `${ -this.cursorSize }px`
-              } else if (modAngle >= 225 && modAngle < 315) {
-                style.left = '0px'
-                style.top = `${ -this.cursorSize / 2 }px`
-              } else {
-                style.left = `${ -this.cursorSize / 2 }px`
-                style.top = '0px'
-              }
-            }, 0)
-          }
-
-          remove() {
-            this.cursor.remove()
-          }
+                input.classList.remove('border-red-500', 'text-red-300');
+                input.classList.add('border-slate-700');
+            }, 2000);
         }
+    }
 
-        (() => {
-          const cursor = new ArrowPointer()
-          if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {     
-            document.onmousemove = function (event) {
-              cursor.move(event)
-            }
-            
-            document.querySelectorAll('a, button, .group').forEach((el) => {
-                el.addEventListener('mouseenter', () => {
-                    cursor.cursor.style.transform += ' scale(1.5)';
-                });
-                el.addEventListener('mouseleave', () => {
-                    cursor.cursor.style.transform = cursor.cursor.style.transform.replace(' scale(1.5)', '');
-                });
-            });
-
-          } else {
-            cursor.remove()
-          }
-        })()
+    window.handleEnter = function(e) {
+        if (e.key === 'Enter') unlockProject();
+    }
     </script>
 </body>
 </html>
-
-
