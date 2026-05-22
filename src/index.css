@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-white text-slate-900 antialiased;
+  }
+  ::selection {
+    @apply bg-emerald-100 text-emerald-900;
+  }
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  html {
+    scroll-padding-top: 5rem;
+  }
+}
+
+@layer utilities {
+  .bg-tech-grid {
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, #f1f5f9 1px, transparent 1px),
+      linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
+  }
+}
+
+/* Spotlight card */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(16, 185, 129, 0.08), transparent 40%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 0;
+}
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Users with reduced motion: skip the fade so a frozen transition can never
+   leave content stuck invisible — show it immediately. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+  }
+}
+
+/* Hero entrance */
+.animate-hero {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Navbar hide on scroll-down */
+.navbar-wrapper {
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+}
+.navbar-wrapper.nav-hidden {
+  transform: translateY(-150%);
+}
+
+/* Progress bar */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: #10b981;
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s;
+}
+
+/* CMD+K palette */
+.cmdk-overlay {
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+.cmdk-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+.cmdk-modal {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  transform: scale(0.95);
+  opacity: 0;
+}
+.cmdk-overlay.open .cmdk-modal {
+  transform: scale(1);
+  opacity: 1;
+}
+.cmdk-item {
+  cursor: pointer;
+  transition: all 0.1s;
+}
+.cmdk-item:hover {
+  background-color: #f1f5f9;
+  border-left: 3px solid #0f172a;
+  padding-left: 13px;
+}
+
+/* Language menu */
+.lang-menu {
+  transform-origin: top right;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  opacity: 0;
+  transform: scale(0.95) translateY(-6px);
+  pointer-events: none;
+}
+.lang-menu.open {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+/* Tools carousel */
+.tools-carousel {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+.tools-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  animation: tools-scroll 30s linear infinite;
+}
+.tools-carousel:hover .tools-track {
+  animation-play-state: paused;
+}
+@keyframes tools-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
